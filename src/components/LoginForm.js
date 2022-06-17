@@ -22,7 +22,7 @@ export function LoginForm() {
     })
       .then((data) => data.json())
       .then((json) => {
-        json.success ? alert("You're logged in") : alert(json.msg);
+        json.success ? alert("You're logged in") : alert("Try Again");
         json.success ? setIsLoggedIn(true) : setIsLoggedIn(false);
       });
   };
