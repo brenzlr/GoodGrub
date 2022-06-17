@@ -4,13 +4,7 @@ import { NavButton } from "../components/NavButton";
 import { LoggedInContext } from "../App";
 import { useContext } from "react";
 import { LogoutButton } from "../components/LogoutButton";
-import { LoginForm } from "../components/LoginForm";
-import { RegisterForm } from "../components/RegisterForm";
-import { Login } from "../pages/Login";
-import LoginButton from "./LoginButton";
-import RegisterButton from "./RegisterButton";
-import Container from "react-bootstrap/Container";
-import Row from "react-bootstrap/Row";
+
 
 export function Header() {
   const [isLoggedIn, setIsLoggedIn] = useContext(LoggedInContext);
@@ -24,13 +18,13 @@ export function Header() {
           <NavButton to="/about" label="About" />
           <NavButton to="/contact" label="Contact" />
         </div>
-        <div style={{ display: "flex", flexDirection: "row-reverse" }}>
+        <div style={{ display: "flex", flexDirection: "row" }}>
           {isLoggedIn ? (
             <LogoutButton />
           ) : (
             <>
-              <RegisterButton />
-              <LoginButton />
+              <NavButton to="/login" label="Login" />
+              <NavButton to="/register" label="Register" />
             </>
           )}
         </div>
