@@ -1,26 +1,40 @@
-import React from "react";
-import { Route, Routes } from "react-router-dom";
-import { Navigate } from "react-router-dom";
+import React, { useState } from "react";
+import { Route, Routes, Navigate } from "react-router-dom";
 
 import "./App.css";
 
 import { MainLayout } from "./layouts/MainLayout";
-
 import { Home } from "./pages/Home";
 import { About } from "./pages/About";
 import { Contact } from "./pages/Contact";
+import { LoginForm } from "./components/LoginForm";
+import { RegisterForm } from "./components/RegisterForm";
+
+export const LoggedInContext = React.createContext({
+  isLoggedIn: false,
+  setIsLoggedIn: () => {},
+});
 
 function App() {
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const loggedInValueToProvide = [isLoggedIn, setIsLoggedIn]; // So we can pass down both value and setter
+
   return (
     <div>
-      <Routes>
-        <Route path="/" element={<MainLayout />}>
-          <Route index element={<Home />} />
-          <Route path="about" element={<About />} />
-          <Route path="contact" element={<Contact />} />
-        </Route>
-        <Route path="*" element={<Navigate to="/" Invalid URL />} />
-      </Routes>
+      <LoggedInContext.Provider value={loggedInValueToProvide}>
+        <Routes>
+          <Route path="/" element={<MainLayout />}>
+            {isLoggedIn ? (
+              <Route index element={<Home />} />
+            ) : (
+              <Route index element={<LoginForm />} />
+            )}
+            <Route path="about" element={<About />} />
+            <Route path="contact" element={<Contact />} />
+          </Route>
+          <Route path="*" element={<Navigate to="/" Invalid URL />} />
+        </Routes>
+      </LoggedInContext.Provider>
     </div>
   );
 }

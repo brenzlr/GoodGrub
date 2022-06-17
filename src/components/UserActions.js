@@ -9,10 +9,24 @@ function UserActions(props) {
   };
   //button will toggle the counter and the count and update both states via callbacks
   return (
-    <button class="koolbtn" onClick={handleOnCLick}>
+    <button className="koolbtn" onClick={handleOnCLick}>
       Better button
     </button>
   );
 }
 
 export default UserActions;
+
+function ThemeButton(props) {
+  const handleOnCLick = () => {
+    props.isBasic ? alert("Basic Theme") : alert("Fancy Theme");
+  };
+
+  return props.isBasic ? (
+    <button onClick={handleOnCLick}>Normal button</button>
+  ) : (
+    <button class="btn btn-primary" onClick={handleOnCLick}>
+      Bootstrap button
+    </button>
+  );
+}
