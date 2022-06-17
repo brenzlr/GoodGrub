@@ -6,7 +6,7 @@ import "./App.css";
 import { MainLayout } from "./layouts/MainLayout";
 import { Home } from "./pages/Home";
 import { About } from "./pages/About";
-import { Contact } from "./pages/Contact";
+import { Recipe } from "./pages/Recipe";
 import { LoginForm } from "./components/LoginForm";
 import { RegisterForm } from "./components/RegisterForm";
 import Login from "pages/Login";
@@ -32,7 +32,7 @@ function App() {
               <Route index element={<LoginForm />} />
             )}
             <Route path="about" element={<About />} />
-            <Route path="contact" element={<Contact />} />
+            <Route path="recipe" element={<Recipe />} />
             <Route path="login" element={<Login />} />
             <Route path="register" element={<Register />} />
           </Route>
