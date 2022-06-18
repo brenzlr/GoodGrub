@@ -6,6 +6,7 @@ export function RegisterRecipe() {
   const descRef = useRef();
   const instructRef = useRef();
   const ratingRef = useRef();
+  const fileRef = useRef();
 
   const handleSubmit = (event) => {
     event.preventDefault(); // prevent page reload
@@ -44,6 +45,21 @@ export function RegisterRecipe() {
         <label htmlFor="instructions">Instructions to replicate: </label>
         <input id="instructions" type="text" ref={instructRef} required />
         <br></br>
+        {/*------hidden because the other users 
+        will be the one to determine it and default value is 0------*/}
+        <label htmlFor="rating"></label>
+        <input
+          id="rating"
+          type="number"
+          ref={ratingRef}
+          hidden="true"
+          value={0}
+        />
+        {/*------------*/}
+        <label for="myfile">Select image: </label>
+        <input type="file" id="myfile" ref={fileRef}></input>
+        <br></br>
+        {/*------------*/}
         <button type="submit">Post Recipe!</button>
       </form>
     </div>
