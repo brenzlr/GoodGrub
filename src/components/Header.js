@@ -40,7 +40,7 @@ export function Header() {
                 <MDBNavbarLink href="/about">About</MDBNavbarLink>
               </MDBNavbarItem>
               <MDBNavbarItem>
-                <MDBNavbarLink href="/recipe">Recipe</MDBNavbarLink>
+                <MDBNavbarLink href="/recipes">Recipes</MDBNavbarLink>
               </MDBNavbarItem>
               <MDBNavbarItem>
                 {isLoggedIn ? (
