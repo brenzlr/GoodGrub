@@ -20,6 +20,7 @@ export function RegisterRecipe() {
         instructions: instructRef.current.value,
         rating: ratingRef.current.value, //needs to take from the component
         //picture, gotta see how to do this
+        file: fileRef.current.value
       }),
       headers: {
         "Content-type": "application/json; charset=UTF-8",
