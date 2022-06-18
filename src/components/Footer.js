@@ -37,7 +37,6 @@ export function Footer() {
             <Heading>Contact Us</Heading>
             <Paragraph>goodgrub2022@gmail.com</Paragraph>
             <Paragraph>514-694-2069</Paragraph>
-            
           </Column>
         </Row>
       </Container>
