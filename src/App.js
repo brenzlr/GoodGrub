@@ -11,6 +11,7 @@ import { LoginForm } from "./components/LoginForm";
 import { RegisterForm } from "./components/RegisterForm";
 import Login from "pages/Login";
 import Register from "pages/Register";
+import { LogoutButton } from "components/LogoutButton";
 
 export const LoggedInContext = React.createContext({
   isLoggedIn: false,
@@ -33,8 +34,12 @@ function App() {
             )}
             <Route path="about" element={<About />} />
             <Route path="recipe" element={<Recipe />} />
-            <Route path="login" element={<Login />} />
-            <Route path="register" element={<Register />} />
+            {isLoggedIn ? (
+              <Route index element={<LogoutButton />} />
+            ) : (
+                <Route path="login" element={<LoginForm />} />  
+            )}
+            <Route path="register" element={<Register />} />  
           </Route>
           <Route path="*" element={<Navigate to="/" Invalid URL />} />
         </Routes>
