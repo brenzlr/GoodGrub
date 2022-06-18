@@ -12,6 +12,7 @@ import { RegisterForm } from "./components/RegisterForm";
 import Login from "pages/Login";
 import Register from "pages/Register";
 import RecipeDetails from "pages/RecipeDetails";
+import PostRecipe from "pages/PostRecipe";
 
 export const LoggedInContext = React.createContext({
   isLoggedIn: false,
@@ -35,6 +36,7 @@ function App() {
             <Route path="about" element={<About />} />
             <Route path="recipes" element={<Recipes />} />
             <Route path="recipeDetails" element={<RecipeDetails />} />
+            <Route path="postRecipe" element={<PostRecipe />} />
             <Route path="login" element={<Login />} />
             <Route path="register" element={<Register />} />
           </Route>

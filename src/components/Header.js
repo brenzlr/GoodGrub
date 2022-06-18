@@ -43,6 +43,9 @@ export function Header() {
                 <MDBNavbarLink href="/recipes">Recipes</MDBNavbarLink>
               </MDBNavbarItem>
               <MDBNavbarItem>
+                <MDBNavbarLink href="/postRecipe">Post a recipe</MDBNavbarLink>
+              </MDBNavbarItem>
+              <MDBNavbarItem>
                 {isLoggedIn ? (
                   <LogoutButton />
                 ) : (
