@@ -30,8 +30,11 @@ export function Header() {
             <MDBIcon fas icon="bars" />
           </MDBNavbarToggler>
           <div className="collapse navbar-collapse" id="navbarExample01">
-            <MDBNavbarNav right className="mb-2 mb-lg-0">
-              <MDBNavbarItem active>
+            <MDBNavbarNav right className="mb-2 mb-lg-0 ">
+              <MDBNavbarItem>
+                <img src="../img/logo.png"></img>
+              </MDBNavbarItem>
+              <MDBNavbarItem active className="offset-5">
                 <MDBNavbarLink aria-current="page" href="/">
                   Home
                 </MDBNavbarLink>
@@ -45,7 +48,7 @@ export function Header() {
               <MDBNavbarItem>
                 <MDBNavbarLink href="/postRecipe">Post a recipe</MDBNavbarLink>
               </MDBNavbarItem>
-              <MDBNavbarItem>
+              <MDBNavbarItem className="offset-3">
                 {isLoggedIn ? (
                   <LogoutButton />
                 ) : (
