@@ -4,7 +4,7 @@ import { NavButton } from "../components/NavButton";
 import { LoggedInContext } from "../App";
 import { useContext } from "react";
 import { LogoutButton } from "../components/LogoutButton";
-
+import logo from "../img/logo.png";
 import {
   MDBNavbar,
   MDBNavbarNav,
@@ -32,9 +32,9 @@ export function Header() {
           <div className="collapse navbar-collapse" id="navbarExample01">
             <MDBNavbarNav right className="mb-2 mb-lg-0 ">
               <MDBNavbarItem>
-                <img src="../img/logo.png"></img>
+                <img src={logo} alt="logo" className="col-4"></img>
               </MDBNavbarItem>
-              <MDBNavbarItem active className="offset-5">
+              <MDBNavbarItem active className="offset-3">
                 <MDBNavbarLink aria-current="page" href="/">
                   Home
                 </MDBNavbarLink>
