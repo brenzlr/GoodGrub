@@ -7,7 +7,7 @@ import { useState } from "react";
 
 export function RegisterRecipe() {
   //const [isLoggedIn, setIsLoggedIn] = React.useContext(LoggedInContext);
-  const timeRef = useRef();
+  const recipeTimeRef = useRef();
   const titleRef = useRef();
   const instructRef = useRef();
   const descRef = useRef();
