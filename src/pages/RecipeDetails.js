@@ -1,8 +1,6 @@
 import React from "react";
 
-export function RecipeDisplay(props) {
-  <RecipeDetails />;
-}
+//I think we need to send a fetch request in the RecipeCard.js button with id and have the url reflect that /recipeDetails/1
 
 export function RecipeDetails(props) {
   return (
@@ -12,6 +10,8 @@ export function RecipeDetails(props) {
       <div>img here{props.img}</div>
       <div>rating here{props.rating}</div>
       <p>description{props.description}</p>
+      <p>instructions</p>
+      <p>recipe by username on creationDate</p>
     </div>
   );
 }

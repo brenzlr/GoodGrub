@@ -1,6 +1,7 @@
 import React, { useRef } from "react";
 import { LoggedInContext } from "../App";
 import { Card, Row, Button, Col } from "react-bootstrap";
+
 export function LoginForm() {
   const [isLoggedIn, setIsLoggedIn] = React.useContext(LoggedInContext);
   const usernameRef = useRef();
@@ -29,7 +30,7 @@ export function LoginForm() {
 
   return (
     <div className="container">
-      <Col md={{ span: 4, offset: 4}} className="mt-5">
+      <Col md={{ span: 4, offset: 4 }} className="mt-5">
         <Card>
           <h1>Login</h1>
           <form onSubmit={handleSubmit}>
@@ -41,7 +42,9 @@ export function LoginForm() {
             <br />
             <input className="form-control " id="password" type="password" ref={passwordRef} required />
             <br /> <br />
-            <Button type="submit" className="btn btn-success float-right">Log in</Button>
+            <Button type="submit" className="btn btn-success float-right">
+              Log in
+            </Button>
           </form>
         </Card>
       </Col>
