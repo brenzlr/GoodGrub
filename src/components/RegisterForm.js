@@ -23,7 +23,7 @@ export function RegisterForm() {
     })
       .then((data) => data.json())
       .then((json) => {
-        json.success ? alert("User created successfully") : alert(json.msg);
+        json.success ? alert("User created successfully") : alert("Input a stronger password");
         json.success ? setIsLoggedIn(true) : setIsLoggedIn(false);
       });
   };

@@ -7,7 +7,7 @@ function Account() {
 
   return (
     <div>
-      <SideNav/>
+      <SideNav loggedIn = {isLoggedIn} />
     </div>
   );
 }
