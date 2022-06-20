@@ -37,7 +37,10 @@ export function RecipeCard(props) {
         <div className="card__rating">
           <Rating onClick={handleRating} ratingValue={rating} /* Available Props {props.rating}*/ />
         </div>
+        <p className="card__description">{props.type}</p>
+        <p className="card__description">{props.ingredients}</p>
         <p className="card__description">{props.description}</p>
+        <p className="card__description">{props.date}</p>
       </div>
       <button className="card__btn" onClick={handleSubmit}>
         View Recipe
