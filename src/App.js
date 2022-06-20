@@ -38,9 +38,9 @@ function App() {
             <Route path="postRecipe" element={<PostRecipe />} />
             <Route path="login" element={<Login />} />
             <Route path="register" element={<Register />} />
-            <Route path="account" element={<Account />} />
+            <Route path="account/" element={<Account />} />
+            <Route path="*" element={<Navigate to="/" Invalid URL />} />
           </Route>
-          <Route path="*" element={<Navigate to="/" Invalid URL />} />
         </Routes>
       </LoggedInContext.Provider>
     </div>

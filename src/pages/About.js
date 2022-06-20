@@ -1,4 +1,3 @@
-import { RecipeData } from "../components/RecipeData";
 export function About() {
   return (
     <div className="container" style={{ "text-align": "center" }}>
