@@ -14,6 +14,8 @@ import {
   MDBContainer,
   MDBIcon,
 } from "mdb-react-ui-kit";
+import { Link } from "react-router-dom";
+import SearchBar from "./SearchBar";
 
 export function Header() {
   const [isLoggedIn, setIsLoggedIn] = useContext(LoggedInContext);
@@ -22,6 +24,7 @@ export function Header() {
     <header className="">
       <MDBNavbar expand="lg" light bgColor="white" fixed>
         <MDBContainer fluid>
+        <SearchBar/>
           <MDBNavbarToggler
             aria-controls="navbarExample01"
             aria-expanded="false"
@@ -36,35 +39,29 @@ export function Header() {
               </MDBNavbarItem>
               <MDBNavbarItem active className="offset-3">
                 <MDBNavbarLink aria-current="page" href="/">
-                  Home
+                <Link to="/">Home</Link>
                 </MDBNavbarLink>
               </MDBNavbarItem>
               <MDBNavbarItem>
-                <MDBNavbarLink href="/about">About</MDBNavbarLink>
+                <MDBNavbarLink href="/about"><Link to="/about">About</Link></MDBNavbarLink>
               </MDBNavbarItem>
               <MDBNavbarItem>
-                <MDBNavbarLink href="/recipes">Recipes</MDBNavbarLink>
+                <MDBNavbarLink href="/recipes"><Link to="/recipes">Recipes</Link></MDBNavbarLink>
+              </MDBNavbarItem>
+              {isLoggedIn ? <MDBNavbarItem>
+                <MDBNavbarLink href="/postRecipe"><Link to="/postRecipe">Post a Recipe</Link></MDBNavbarLink>
+              </MDBNavbarItem> : ""}
+              {isLoggedIn ? <MDBNavbarItem>
+                <MDBNavbarLink href="/account"><Link to="/account"><Link to="/account">My Account</Link></Link></MDBNavbarLink>
+              </MDBNavbarItem> : ""}
+              <MDBNavbarItem >
+                {isLoggedIn ? <LogoutButton /> : ""}
               </MDBNavbarItem>
               <MDBNavbarItem>
-                <MDBNavbarLink href="/postRecipe">Post a recipe</MDBNavbarLink>
-              </MDBNavbarItem>
-              <MDBNavbarItem className="offset-3">
-                {isLoggedIn ? (
-                  <LogoutButton />
-                ) : (
-                  <>
-                    <MDBNavbarLink href="/login">Login</MDBNavbarLink>
-                  </>
-                )}
+                {isLoggedIn ? "" : <> <MDBNavbarLink href="/login"><Link to="/login">Login</Link></MDBNavbarLink> </> }
               </MDBNavbarItem>
               <MDBNavbarItem>
-                {isLoggedIn ? (
-                  ""
-                ) : (
-                  <>
-                    <MDBNavbarLink href="/register">Register</MDBNavbarLink>
-                  </>
-                )}
+                {isLoggedIn ? "" : <> <MDBNavbarLink href="/register"><Link to="/register">Register</Link></MDBNavbarLink> </> }
               </MDBNavbarItem>
             </MDBNavbarNav>
           </div>

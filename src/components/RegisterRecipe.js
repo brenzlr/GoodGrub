@@ -7,7 +7,6 @@ import { useState } from "react";
 
 export function RegisterRecipe() {
   //const [isLoggedIn, setIsLoggedIn] = React.useContext(LoggedInContext);
-
   const timeRef = useRef();
   const titleRef = useRef();
   const instructRef = useRef();
@@ -21,11 +20,12 @@ export function RegisterRecipe() {
     fetch("http://localhost:3001/recipes/register", {
       method: "POST",
       body: JSON.stringify({
-        title: titleRef.current.value,
-        description: descRef.current.value,
-        instructions: instructRef.current.value,
-        img: fileRef.current.value,
-        timeToMake: timeRef.current.value,
+        recipeName: titleRef.current.value,
+        recipeInstruction: instructRef.current.value,
+        recipeTime: recipeTimeRef.current.value,
+        // rating: recipeRatingRef.current.value, //needs to take from the component
+        //picture, gotta see how to do this
+        // file: fileRef.current.value,
       }),
       headers: {
         "Content-type": "application/json; charset=UTF-8",
@@ -55,16 +55,10 @@ export function RegisterRecipe() {
               required
             />
             <br></br>
-            <label htmlFor="description" className="control-label">
-              Description{" "}
+            <label htmlFor="duration" className="control-label">
+              Duration{" "}
             </label>
-            <input
-              id="description"
-              type="text"
-              ref={descRef}
-              className="form-control"
-              required
-            />
+            <input id="duration" type="text" ref={descRef} className="form-control" required />
             <br></br>
             <label htmlFor="instructions" className="control-label">
               Instructions to replicate{" "}
