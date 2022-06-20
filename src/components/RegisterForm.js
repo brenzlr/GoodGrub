@@ -29,20 +29,17 @@ export function RegisterForm() {
   };
 
   return (
-    <div className="container">
-      <Col md={{ span: 4, offset: 4}} className="mt-5">
+    <div>
+      <Col md={{ span: 4, offset: 4 }} className="mt-5">
         <Card>
-          <h1>Register</h1>
+          <h1 className="text-center">Register</h1>
           <form onSubmit={handleSubmit}>
-            <label htmlFor="username" className="control-label">Username</label>
-            <br />
-            <input className="form-control" id="username" type="text" ref={usernameRef} required />
-            <br />
-            <label htmlFor="password" className="control-label">Password</label>
-            <br />
-            <input className="form-control" id="password" type="password" ref={passwordRef} required />
-            <br /> <br />
-            <Button type="submit" className="btn btn-primary float-right">Register</Button>
+            <label htmlFor="username" className="ml-3 form-label">Username</label><br/>
+            <input id="username" type="text" ref={usernameRef} required  className="form-control"/><br/>
+
+            <label htmlFor="password" className="ml-3 form-label">Password</label><br/>
+            <input id="password" type="password" ref={passwordRef} required className="form-control" /><br/>
+            <Button type="submit" className="float-right btn-success ">Register</Button>
           </form>
         </Card>
       </Col>
