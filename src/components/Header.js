@@ -19,7 +19,7 @@ export function Header() {
   const [isLoggedIn, setIsLoggedIn] = useContext(LoggedInContext);
 
   return (
-    <header>
+    <header className="">
       <MDBNavbar expand="lg" light bgColor="white" fixed>
         <MDBContainer fluid>
           <MDBNavbarToggler
@@ -32,7 +32,7 @@ export function Header() {
           <div className="collapse navbar-collapse" id="navbarExample01">
             <MDBNavbarNav right className="mb-2 mb-lg-0 ">
               <MDBNavbarItem>
-                <img src={logo} alt="logo" className="col-4"></img>
+                <img src={logo} alt="logo" className="col-3"></img>
               </MDBNavbarItem>
               <MDBNavbarItem active className="offset-3">
                 <MDBNavbarLink aria-current="page" href="/">

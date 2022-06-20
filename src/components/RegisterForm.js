@@ -1,5 +1,6 @@
 import React, { useRef } from "react";
 import { LoggedInContext } from "../App";
+import { Card, Row, Button, Col } from "react-bootstrap";
 
 export function RegisterForm() {
   const [isLoggedIn, setIsLoggedIn] = React.useContext(LoggedInContext);
@@ -28,16 +29,23 @@ export function RegisterForm() {
   };
 
   return (
-    <div>
-      <h1>Register</h1>
-      <form onSubmit={handleSubmit}>
-        <label htmlFor="username">Username: </label>
-        <input id="username" type="text" ref={usernameRef} required />
-
-        <label htmlFor="password">Password: </label>
-        <input id="password" type="password" ref={passwordRef} required />
-        <button type="submit">Log in</button>
-      </form>
+    <div className="container">
+      <Col md={{ span: 4, offset: 4}} className="mt-5">
+        <Card>
+          <h1>Register</h1>
+          <form onSubmit={handleSubmit}>
+            <label htmlFor="username" className="control-label">Username</label>
+            <br />
+            <input className="form-control" id="username" type="text" ref={usernameRef} required />
+            <br />
+            <label htmlFor="password" className="control-label">Password</label>
+            <br />
+            <input className="form-control" id="password" type="password" ref={passwordRef} required />
+            <br /> <br />
+            <Button type="submit" className="btn btn-primary float-right">Register</Button>
+          </form>
+        </Card>
+      </Col>
     </div>
   );
 }
