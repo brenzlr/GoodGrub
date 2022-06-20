@@ -13,6 +13,29 @@
   }
 }
 
+#light {
+  background-color: cornsilk;
+}
+
+#dark {
+  background-color: #282c34
+}
+
+.switch {
+  display: flex;
+  width: 100vw;
+  height:100px;
+  justify-content: center;
+}
+
+#light .switch label {
+  color: black;
+}
+
+#dark .switch label {
+  color: white;
+}
+
 .App-header {
   background-color: #282c34;
   min-height: 100vh;
