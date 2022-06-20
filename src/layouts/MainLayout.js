@@ -6,11 +6,11 @@ import { Footer } from "../components/Footer";
 
 export function MainLayout() {
   return (
-    <div>
+    <body class="d-flex flex-column min-vh-100">
       <Header />
       <Outlet />
       <Footer />
-    </div>
+    </body>
   );
 }
 

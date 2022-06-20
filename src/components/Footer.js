@@ -10,8 +10,7 @@ import {
 
 export function Footer() {
   return (
-    <Box>
-      {/* */}
+    <Box className="mt-auto">
       <Container>
         <Row style={{ flexDirection: 'row', justifyContent: 'space-between' }}>
           <Column style={{ textAlign: 'center' }}>
@@ -33,10 +32,11 @@ export function Footer() {
               © 2022 GoodGrub.inc
             </h1>
           </Column>
-          <Column style={{ textAlign: 'center' }}>
+          <Column style={{ textAlign: 'center'}} >
             <Heading>Contact Us</Heading>
             <Paragraph>goodgrub2022@gmail.com</Paragraph>
             <Paragraph>514-694-2069</Paragraph>
+
           </Column>
         </Row>
       </Container>

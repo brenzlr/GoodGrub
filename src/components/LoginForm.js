@@ -33,13 +33,13 @@ export function LoginForm() {
         <Card>
           <h1>Login</h1>
           <form onSubmit={handleSubmit}>
-            <label htmlFor="username" className="control-label">Username</label>
+            <label htmlFor="username" className="control-label mx-3">Username</label>
             <br />
             <input className="form-control" id="username" type="text" ref={usernameRef} required />
             <br />
-            <label htmlFor="password" className="control-label">Password</label>
+            <label htmlFor="password" className="control-label mx-3">Password</label>
             <br />
-            <input className="form-control" id="password" type="password" ref={passwordRef} required />
+            <input className="form-control " id="password" type="password" ref={passwordRef} required />
             <br /> <br />
             <Button type="submit" className="btn btn-success float-right">Log in</Button>
           </form>

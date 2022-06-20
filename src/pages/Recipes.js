@@ -1,7 +1,7 @@
 import { RecipeCard } from "../components/RecipeCard";
 import "../components/RecipeCard.css";
 import Carousel from "react-elastic-carousel";
-
+// import Footer from "../components/Footer";
 export function Recipes() {
   const breakPoints = [
     { width: 1, itemsToShow: 1 },

@@ -2,6 +2,7 @@ import React from "react";
 import UserActions from "../components/UserActions";
 import DbData from "../components/DbData";
 import "../components/RecipeCard.css";
+import UserDashboard from "../components/UserDashboard";
 
 export function Home() {
   const [color, setColor] = React.useState(JSON.parse(sessionStorage.getItem("color")) || "blue");
@@ -14,6 +15,7 @@ export function Home() {
 
   return (
     <div>
+      <UserDashboard/>
       <DbData />
       <UserActions setColor={setColor} setCount={setCount} color={color} count={count} />
     </div>
