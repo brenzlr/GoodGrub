@@ -7,12 +7,15 @@ import { useState } from "react";
 
 export function RegisterRecipe() {
   //const [isLoggedIn, setIsLoggedIn] = React.useContext(LoggedInContext);
- 
-  const timeToMake = useRef();
+  const timeRef = useRef();
+  const recipeNameRef = useRef();
+  const recipeTimeRef = useRef();
   const titleRef = useRef();
-  const description = useRef();
-  const instructions = useRef();
+  const descRef = useRef();
+  const instructRef = useRef();
   const img = useRef();
+  const fileRef = useRef();
+  const ratingRef = useRef();
 
   const handleSubmit = (event) => {
     event.preventDefault(); // prevent page reload
@@ -21,8 +24,8 @@ export function RegisterRecipe() {
     fetch("http://localhost:3001/recipes/register", {
       method: "POST",
       body: JSON.stringify({
-        recipeName: recipeNameRef.current.value,
-        recipeInstruction: recipeInstructionRef.current.value,
+        recipeName: titleRef.current.value,
+        recipeInstruction: instructRef.current.value,
         recipeTime: recipeTimeRef.current.value,
         // rating: recipeRatingRef.current.value, //needs to take from the component
         //picture, gotta see how to do this
@@ -57,10 +60,10 @@ export function RegisterRecipe() {
             </label>
             <input id="title" type="text" ref={titleRef} className="form-control" required />
             <br></br>
-            <label htmlFor="description" className="control-label">
-              Description{" "}
+            <label htmlFor="duration" className="control-label">
+              Duration{" "}
             </label>
-            <input id="description" type="text" ref={descRef} className="form-control" required />
+            <input id="duration" type="text" ref={descRef} className="form-control" required />
             <br></br>
             <label htmlFor="instructions" className="control-label">
               Instructions to replicate{" "}

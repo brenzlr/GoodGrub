@@ -13,6 +13,9 @@ import Login from "pages/Login";
 import Register from "pages/Register";
 import RecipeDetails from "pages/RecipeDetails";
 import PostRecipe from "pages/PostRecipe";
+import { LogoutButton } from "components/LogoutButton";
+import Account from "pages/Account";
+
 
 export const LoggedInContext = React.createContext({
   isLoggedIn: false,
@@ -28,17 +31,14 @@ function App() {
       <LoggedInContext.Provider value={loggedInValueToProvide}>
         <Routes>
           <Route path="/" element={<MainLayout />}>
-            {isLoggedIn ? (
-              <Route index element={<Home />} />
-            ) : (
-              <Route index element={<LoginForm />} />
-            )}
+            {isLoggedIn ? <Route index element={<Home />} /> : ""}
             <Route path="about" element={<About />} />
             <Route path="recipes" element={<Recipes />} />
             <Route path="recipeDetails" element={<RecipeDetails />} />
             <Route path="postRecipe" element={<PostRecipe />} />
             <Route path="login" element={<Login />} />
             <Route path="register" element={<Register />} />
+            <Route path="account" element={<Account />} />
           </Route>
           <Route path="*" element={<Navigate to="/" Invalid URL />} />
         </Routes>
