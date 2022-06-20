@@ -1,0 +1,5 @@
+.ui.dropdown .visible.menu {
+    display: inline-block !important;
+  }
+
+.dropdown-menu { position:relative !important }

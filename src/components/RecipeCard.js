@@ -2,8 +2,6 @@ import { useState } from "react";
 import "./RecipeCard.css";
 import { Rating } from "react-simple-star-rating";
 import { useNavigate } from "react-router-dom";
-import { Link } from "react-router-dom";
-import Carousel from "react-elastic-carousel";
 
 export function RecipeCard(props) {
   // ---------------- Star Rating --------------------------------
@@ -16,10 +14,15 @@ export function RecipeCard(props) {
   };
   // -------------------------------------------------------------
   const navigate = useNavigate();
+  /* const [recipe, setRecipe] = useState({
+    title: props.title,
+    img: props.img,
+    rating: props.rating,
+    desc: props.description,
+  }); */
 
   const handleSubmit = (event) => {
     try {
-      //<Link to={{ pathname: "/RecipeDetails", state: props }}></Link>;
       navigate("/recipeDetails", { replace: true });
     } catch (error) {
       console.log(error);
