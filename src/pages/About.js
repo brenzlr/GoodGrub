@@ -30,7 +30,6 @@ export function About() {
           Thus starts the excursion to the revelation of flavors that convey the
           information on a valuable culture and populace.
         </p>
-        <RecipeData />
       </div>
     </div>
   );

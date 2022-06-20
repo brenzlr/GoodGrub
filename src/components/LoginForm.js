@@ -1,7 +1,7 @@
 import React, { useRef } from "react";
 import { LoggedInContext } from "../App";
-import { useNavigate} from "react-router-dom"
-
+import { useNavigate } from "react-router-dom";
+import {Col, Card, Button} from "react-bootstrap"
 export function LoginForm() {
   const [isLoggedIn, setIsLoggedIn] = React.useContext(LoggedInContext);
   const usernameRef = useRef();
@@ -26,7 +26,7 @@ export function LoginForm() {
       .then((json) => {
         json.success ? alert("You're logged in") : alert("Try Again");
         json.success ? setIsLoggedIn(true) : setIsLoggedIn(false);
-        if(json.success){
+        if (json.success) {
           navigate("/");
         }
       });
@@ -34,15 +34,19 @@ export function LoginForm() {
 
   return (
     <div>
-      <h1>Login</h1>
-      <form onSubmit={handleSubmit}>
-        <label htmlFor="username">Username</label>
-        <input id="username" type="text" ref={usernameRef} required />
+      <Col md={{ span: 4, offset: 4 }} className="mt-5">
+        <Card>
+          <h1 className="text-center">Login</h1>
+          <form onSubmit={handleSubmit}>
+            <label htmlFor="username" className="ml-3 form-label">Username</label><br/>
+            <input id="username" type="text" ref={usernameRef} required  className="form-control"/><br/>
 
-        <label htmlFor="password">Password</label>
-        <input id="password" type="password" ref={passwordRef} required />
-        <button type="submit">Log in</button>
-      </form>
+            <label htmlFor="password" className="ml-3 form-label">Password</label><br/>
+            <input id="password" type="password" ref={passwordRef} required className="form-control" /><br/>
+            <Button type="submit" className="float-right  btn-success">Log in</Button>
+          </form>
+        </Card>
+      </Col>
     </div>
   );
 }

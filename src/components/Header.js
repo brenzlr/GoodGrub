@@ -37,7 +37,7 @@ export function Header() {
               <MDBNavbarItem>
                 <img src={logo} alt="logo" className="col-3"></img>
               </MDBNavbarItem>
-              <MDBNavbarItem active className="offset-3">
+              <MDBNavbarItem active className="offset-2">
                 <MDBNavbarLink aria-current="page" href="/">
                 <Link to="/">Home</Link>
                 </MDBNavbarLink>
@@ -54,10 +54,10 @@ export function Header() {
               {isLoggedIn ? <MDBNavbarItem>
                 <MDBNavbarLink href="/account"><Link to="/account"><Link to="/account">My Account</Link></Link></MDBNavbarLink>
               </MDBNavbarItem> : ""}
-              <MDBNavbarItem >
+              <MDBNavbarItem className="offset-2">
                 {isLoggedIn ? <LogoutButton /> : ""}
               </MDBNavbarItem>
-              <MDBNavbarItem>
+              <MDBNavbarItem className="offset-2">
                 {isLoggedIn ? "" : <> <MDBNavbarLink href="/login"><Link to="/login">Login</Link></MDBNavbarLink> </> }
               </MDBNavbarItem>
               <MDBNavbarItem>
