@@ -7,9 +7,9 @@ function SearchBar(props) {
     event.preventDefault(); // prevent page reload
     const queryVal = query.current.value;
 
-    console.log(`http://localhost:3001/recipes?search=${queryVal}`);
+    console.log(`http://localhost:3001/searchRecipe?search=${queryVal}`);
     // to fill in based on callPostBody
-    fetch(`http://localhost:3001/recipes?search=${queryVal}`, { method: "GET" })
+    fetch(`http://localhost:3001/searchRecipe?search=${queryVal}`, { method: "GET" })
       .then((data) => data.json())
       .then((json) => alert(JSON.stringify(json)));
   };
