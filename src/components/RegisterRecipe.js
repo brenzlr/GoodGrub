@@ -7,13 +7,13 @@ import { useState } from "react";
 
 export function RegisterRecipe() {
   //const [isLoggedIn, setIsLoggedIn] = React.useContext(LoggedInContext);
- 
-  const timeToMake = useRef();
-  const titleRef = useRef();
-  const description = useRef();
-  const instructions = useRef();
-  const img = useRef();
 
+  const timeRef = useRef();
+  const titleRef = useRef();
+  const instructRef = useRef();
+  const descRef = useRef();
+  const fileRef = useRef();
+  const ratingRef = useRef();
   const handleSubmit = (event) => {
     event.preventDefault(); // prevent page reload
 
@@ -21,12 +21,11 @@ export function RegisterRecipe() {
     fetch("http://localhost:3001/recipes/register", {
       method: "POST",
       body: JSON.stringify({
-        recipeName: recipeNameRef.current.value,
-        recipeInstruction: recipeInstructionRef.current.value,
-        recipeTime: recipeTimeRef.current.value,
-        // rating: recipeRatingRef.current.value, //needs to take from the component
-        //picture, gotta see how to do this
-        // file: fileRef.current.value,
+        title: titleRef.current.value,
+        description: descRef.current.value,
+        instructions: instructRef.current.value,
+        img: fileRef.current.value,
+        timeToMake: timeRef.current.value,
       }),
       headers: {
         "Content-type": "application/json; charset=UTF-8",
@@ -36,13 +35,6 @@ export function RegisterRecipe() {
       .then((json) => {
         json.success ? alert("Recipe created successfully") : alert(json.msg);
       });
-  };
-
-  const [value, setValue] = useState("");
-  const handleSelect = (e) => {
-    console.log(e);
-    setValue(e);
-    timeRef = value;
   };
 
   //need picture here -----------------------------------------------
@@ -55,12 +47,24 @@ export function RegisterRecipe() {
             <label htmlFor="title" className="control-label" placeholder="">
               Recipe's name{" "}
             </label>
-            <input id="title" type="text" ref={titleRef} className="form-control" required />
+            <input
+              id="title"
+              type="text"
+              ref={titleRef}
+              className="form-control"
+              required
+            />
             <br></br>
             <label htmlFor="description" className="control-label">
               Description{" "}
             </label>
-            <input id="description" type="text" ref={descRef} className="form-control" required />
+            <input
+              id="description"
+              type="text"
+              ref={descRef}
+              className="form-control"
+              required
+            />
             <br></br>
             <label htmlFor="instructions" className="control-label">
               Instructions to replicate{" "}
@@ -88,13 +92,18 @@ export function RegisterRecipe() {
             <label for="myfile" className="control-label">
               Select image{" "}
             </label>
-            <input type="file" id="myfile" ref={fileRef} className="form-control"></input>
+            <input
+              type="file"
+              id="myfile"
+              ref={fileRef}
+              className="form-control"
+            ></input>
 
             <br></br>
             <DropdownButton
               id="dropdown-basic-button"
               title="Time to prepare"
-              onSelect={handleSelect}
+              // onSelect={handleSelect}
               size="sm"
             >
               <Dropdown.Item eventKey="10">~10min</Dropdown.Item>

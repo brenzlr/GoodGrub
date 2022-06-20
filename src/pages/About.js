@@ -1,3 +1,4 @@
+import { RecipeData } from "../components/RecipeData";
 export function About() {
   return (
     <div className="container" style={{ "text-align": "center" }}>
@@ -29,6 +30,7 @@ export function About() {
           Thus starts the excursion to the revelation of flavors that convey the
           information on a valuable culture and populace.
         </p>
+        <RecipeData />
       </div>
     </div>
   );
