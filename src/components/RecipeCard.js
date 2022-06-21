@@ -7,20 +7,15 @@ import { motion } from "framer-motion";
 export function RecipeCard(props) {
   const [isOpen, setIsOpen] = useState(false);
   const [size, setSize] = useState("card");
-  const [wrap, setWrap] = useState("wrapper");
-  const changeSize = () => {
-    setSize(size === "card" ? "card-expanded" : "card");
-    setWrap(wrap === "wrapper" ? "" : "wrapper");
-  };
 
   return (
     <motion.div
-      transition={{ layout: { duration: 1, type: "spring" } }}
       Layout
-      style={{
-        borderRadius: "1rem",
-        boxShadow: "0px 10px 30px rgba(0, 0, 0, 0.5)",
+      onClick={() => {
+        setIsOpen(!isOpen);
+        setSize(size === "card" ? "card-expanded" : "card");
       }}
+      transition={{ layout: { duration: 1, type: "spring" } }}
     >
       <div className={size}>
         <div className="card">
@@ -40,14 +35,11 @@ export function RecipeCard(props) {
               >
                 <p className="card__description">Intructions to replicate: {props.instructions}</p>
                 <p className="card__description">Ingredients needed: {props.ingredients}</p>
-                <p>recipe by username on creationDate</p>
               </motion.div>
             )}
           </div>
 
-          <button className="card__btn" Layout onClick={() => setIsOpen(!isOpen)}>
-            <p onClick={changeSize}>View Recipe</p>
-          </button>
+          <button className="card__btn">Add to favorites</button>
         </div>
       </div>
     </motion.div>

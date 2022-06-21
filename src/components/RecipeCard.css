@@ -42,9 +42,9 @@
 	 font-weight: bold;
 	 font-size: 1rem;
 	 margin: 1rem;
-	 border: 2px solid #d50000;
+	 border: 2px solid #00d52e;
 	 background: transparent;
-	 color: #d50000;
+	 color: #00d52e;
 	 border-radius: 0.2rem;
 	 transition: background-color 200ms ease-in, color 200ms ease-in;
 }
@@ -52,7 +52,7 @@
 	 transform: scale(1.02);
 }
  .card:hover .card__btn {
-	 background: #d50000;
+	 background: #00d52e;
 	 color: white;
 }
  .card__rating {
@@ -62,9 +62,20 @@
  .card-expanded {
 	position:absolute;
 	width: 50%;
+
+	/* justify-content: center; */
+	overflow: hidden;
+	box-shadow: 0 2px 20px #e1e5ee;
 	border-radius: 0.2rem;
-	display: flex;
-	justify-content: center;
+	display: block;
+	flex-direction: column;
+	
+	cursor: pointer;
+	transition: transform 200ms ease-in;
+	line-height: 100%;
+	/* width: 327.552px; */ 
+	padding: 0px;
+
 	z-index: 10;
 }
 	
