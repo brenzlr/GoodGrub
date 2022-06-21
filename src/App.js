@@ -24,14 +24,14 @@ function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const loggedInValueToProvide = [isLoggedIn, setIsLoggedIn]; // So we can pass down both value and setter
   
-  const [theme, setTheme] = useState("dark");
+  const [theme, setTheme] = useState("light");
   const toggleTheme = () => { setTheme((curr) => (curr === "light" ? "dark" : "light")); };
 
   return (
     <ThemeContext.Provider value={{theme, toggleTheme}} >
       <div id={theme}>
         <LoggedInContext.Provider value={loggedInValueToProvide}>
-          <Switch onChange={toggleTheme} checked={theme === "dark"} className="switch" />
+          <Switch onChange={toggleTheme} checked={theme === "dark"}/>
           <Routes>
             <Route path="/" element={<MainLayout color={theme} />}>
               {isLoggedIn ? <Route index element={<Home />} /> : ""}
