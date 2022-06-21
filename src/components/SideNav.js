@@ -9,6 +9,9 @@ function SideNav(props) {
     return (
         <div className="sidenav">
             <Link to="/about">About</Link>
+            
+            <Link to="/about">About</Link>
+
         </div>
     );
 };
