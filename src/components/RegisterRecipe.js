@@ -1,21 +1,19 @@
 import React, { useRef } from "react";
-import { Card, Row, Button, Col } from "react-bootstrap";
+import { Card, Col } from "react-bootstrap";
 import "./FormStyle.css";
-import Dropdown from "react-bootstrap/esm/Dropdown";
-import DropdownButton from "react-bootstrap/esm/DropdownButton";
 import { useState } from "react";
 
 export function RegisterRecipe() {
   //const [isLoggedIn, setIsLoggedIn] = React.useContext(LoggedInContext);
   const recipeNameRef = useRef();
   const recipeDurationRef = useRef();
-  const instructRef = useRef();
   const recipeTypeRef = useRef();
   const recipeIngredientsRef = useRef();
   const recipeInstructionRef = useRef();
   const [date, setDate] = useState(new Date().toLocaleDateString());
   const dateRef = useRef();
-  const ratingRef = useRef();
+  // const ratingRef = useRef();
+
   const handleSubmit = (event) => {
     event.preventDefault(); // prevent page reload
 

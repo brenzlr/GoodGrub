@@ -1,5 +1,5 @@
-import { RecipeData } from "../components/RecipeData";
 import "../App.css";
+
 export function About() {
   return (
     <div className="about">

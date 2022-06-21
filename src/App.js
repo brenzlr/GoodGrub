@@ -7,16 +7,11 @@ import { MainLayout } from "./layouts/MainLayout";
 import { Home } from "./pages/Home";
 import { About } from "./pages/About";
 import { Recipes } from "./pages/Recipes";
-import { LoginForm } from "./components/LoginForm";
-import { RegisterForm } from "./components/RegisterForm";
 import Login from "pages/Login";
 import Register from "pages/Register";
-import RecipeDetails from "pages/RecipeDetails";
 import PostRecipe from "pages/PostRecipe";
-import { LogoutButton } from "components/LogoutButton";
 import Account from "pages/Account";
 import Switch from "react-switch"
-
 
 export const LoggedInContext = React.createContext({
   isLoggedIn: false,
@@ -42,7 +37,6 @@ function App() {
               {isLoggedIn ? <Route index element={<Home />} /> : ""}
               <Route path="about" element={<About />} />
               <Route path="recipes" element={<Recipes />} />
-              <Route path="recipeDetails" element={<RecipeDetails />} />
               <Route path="postRecipe" element={<PostRecipe />} />
               <Route path="login" element={<Login />} />
               <Route path="register" element={<Register />} />
