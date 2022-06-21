@@ -13,7 +13,7 @@ export function RecipeData() {
         description={recipe.recipeInstructions}
         ingredients={recipe.recipeIngredients}
         type={recipe.recipeType}
-        date={recipe.dateCreated}/>
+        duration={recipe.recipeDuration}/>
       </div>
     ));
 

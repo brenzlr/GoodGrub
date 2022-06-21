@@ -40,7 +40,7 @@ export function RecipeCard(props) {
         <p className="card__description">{props.type}</p>
         <p className="card__description">{props.ingredients}</p>
         <p className="card__description">{props.description}</p>
-        <p className="card__description">{props.date}</p>
+        <p className="card__description">{props.duration} mins</p>
       </div>
       <button className="card__btn" onClick={handleSubmit}>
         View Recipe

@@ -8,3 +8,11 @@
     color: black;
     background: orange;
   }
+
+  #light .head{
+    background-color: white;
+  }
+
+  #dark .head{
+    background-color: #303030;
+  }

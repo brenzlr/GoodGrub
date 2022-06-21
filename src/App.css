@@ -36,3 +36,25 @@
     transform: rotate(360deg);
   }
 }
+
+#light{
+  background-color: #f3ebf6;
+}
+
+#dark{
+  background-color: #202020;
+}
+
+.switch{
+  float: right;
+  margin-top: 0.75%;
+}
+
+#light .about{
+  color: #202020;
+}
+
+#dark .about{
+  
+  color: #f3ebf6;
+}

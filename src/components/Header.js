@@ -17,12 +17,12 @@ import {
 import { Link } from "react-router-dom";
 import SearchBar from "./SearchBar";
 
-export function Header() {
+export function Header(props) {
   const [isLoggedIn, setIsLoggedIn] = useContext(LoggedInContext);
 
   return (
-    <header className="">
-      <MDBNavbar expand="lg" light bgColor="white" fixed>
+    <header>
+      <MDBNavbar expand="lg" light fixed id={props.color} className="head">
         <MDBContainer fluid>
         <SearchBar/>
           <MDBNavbarToggler

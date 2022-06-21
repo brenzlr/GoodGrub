@@ -1,6 +1,8 @@
 import { RecipeData } from "../components/RecipeData";
+import "../App.css";
 export function About() {
   return (
+    <div className="about">
     <div className="container" style={{ "text-align": "center" }}>
       <div>
         <header>
@@ -31,6 +33,7 @@ export function About() {
           information on a valuable culture and populace.
         </p>
       </div>
+    </div>
     </div>
   );
 }

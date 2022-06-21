@@ -8,9 +8,9 @@ import {
   Paragraph,
 } from "./FooterStyle";
 
-export function Footer() {
+export function Footer(props) {
   return (
-    <Box className="mt-auto">
+    <Box className="mt-auto" >
       <Container>
         <Row style={{ flexDirection: 'row', justifyContent: 'space-between' }}>
           <Column style={{ textAlign: 'center' }}>
