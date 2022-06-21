@@ -58,3 +58,14 @@
  .card__rating {
 	padding: 0 1rem;
  }
+
+ .card-expanded {
+	position:absolute;
+	width: 50%;
+	border-radius: 0.2rem;
+	display: flex;
+	justify-content: center;
+	z-index: 10;
+}
+	
+ 
