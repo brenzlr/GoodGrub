@@ -10,7 +10,9 @@ export function Recipes() {
   const [isLoggedIn, setIsLoggedIn] = React.useContext(LoggedInContext);
   const [theme, setTheme] = useContext(ThemeContext);
 
-  const [recipeData] = useFetch("http://localhost:3001/favorites/" + isLoggedIn.username, "GET");
+  const [recipeData] = useFetch("http://localhost:3001/favorites/" + isLoggedIn, "GET");
+
+  console.log( recipeData);
 
   const recipeList =
     recipeData &&

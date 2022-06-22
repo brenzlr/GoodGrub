@@ -13,7 +13,7 @@ export function RecipeCard(props) {
 
 
   const [recipeRef] = useFetch(
-    "http://localhost:3001/recipes/" +props.title,
+    "http://localhost:3001/recipes/" + props.title,
     "GET"
   );
 
