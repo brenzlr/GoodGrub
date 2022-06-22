@@ -59,11 +59,6 @@ export function Header(props) {
                   <Link to="/recipes">Recipes</Link>
                 </MDBNavbarLink>
               </MDBNavbarItem>
-              <MDBNavbarItem>
-                <MDBNavbarLink href="/myWeeklyRecipes">
-                  <Link to="/myWeeklyRecipes">Weekly Recipes</Link>
-                </MDBNavbarLink>
-              </MDBNavbarItem>
               {isLoggedIn ? (
                 <MDBNavbarItem>
                   <MDBNavbarLink href="/postRecipe">
