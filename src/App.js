@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useState } from "react";
 import { Route, Routes, Navigate } from "react-router-dom";
 import "./App.css";
 import { MainLayout } from "./layouts/MainLayout";
@@ -41,7 +41,7 @@ function App() {
         <SearchContext.Provider value={searchValue}>
           <Routes>
             <Route path="/" element={<MainLayout />}>
-              <Route index element={<Recipes />} /> 
+              <Route index element={<Recipes />} />
               <Route path="about" element={<About />} />
               <Route path="postRecipe" element={<PostRecipe />} />
               <Route path="myRecipes" element={<MyRecipes />} />

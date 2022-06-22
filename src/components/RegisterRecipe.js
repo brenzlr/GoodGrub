@@ -16,11 +16,12 @@ export function RegisterRecipe() {
   const dateRef = useRef();
   const imgUrlRef = useRef();
   const navigate = useNavigate();
+  const url = process.env.REACT_APP_SERVER_URL || "http://localhost:3001";
 
   const handleSubmit = (event) => {
     event.preventDefault();
 
-    fetch("http://localhost:3001/recipes/register", {
+    fetch(url + "/recipes/register", {
       method: "POST",
       body: JSON.stringify({
         recipeName: recipeNameRef.current.value,
