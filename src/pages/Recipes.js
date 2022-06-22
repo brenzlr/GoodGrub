@@ -1,7 +1,7 @@
 import { useContext, useState } from "react";
 import "../components/RecipeCard.css";
 import { RecipeData } from "../components/RecipeData";
-import { SearchContext, ThemeContext } from "App";
+import { ThemeContext } from "App";
 import SearchBar from "components/SearchBar";
 
 export function Recipes(props) {
@@ -20,24 +20,16 @@ export function Recipes(props) {
     <div id={theme}>
       <br></br>
       <h1 style={{ textAlign: "center" }}> Browse Recipes </h1>;
-      <div style={{ textAlign: "center" }}> <SearchBar /> </div>;
+      <div style={{ textAlign: "center" }}>
+        {" "}
+        <SearchBar />{" "}
+      </div>
+      ;
       <div className="body">
         <div className="wrapper">
           <RecipeData />
         </div>
         <br></br>
-
-        {/* <h3 style={{ textAlign: "center" }}>Here's some more... salads!</h3>
-        <Carousel breakPoints={breakPoints}>
-          <div className="wrapper">
-            <RecipeCard
-              img="https://images.unsplash.com/photo-1536304929831-ee1ca9d44906?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=400&fit=max&ixid=eyJhcHBfaWQiOjE0NTg5fQ"
-              title="The Everyday Salad"
-              description="Take your boring salads up a knotch. This recipe is perfect for lunch
-          and only contains 5 ingredients!"
-            />
-          </div>
-        </Carousel> */}
       </div>
     </div>
   );

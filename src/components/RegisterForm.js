@@ -9,12 +9,13 @@ export function RegisterForm() {
   const usernameRef = useRef();
   const passwordRef = useRef();
   const navigate = useNavigate();
+  const url = process.env.REACT_APP_SERVER_URL || "http://localhost:3001";
 
   const handleSubmit = (event) => {
     event.preventDefault(); // prevent page reload
 
     // to fill in based on callPostBody
-    fetch("http://localhost:3001/users/register", {
+    fetch(url + "/users/register", {
       method: "POST",
       body: JSON.stringify({
         username: usernameRef.current.value,
@@ -26,9 +27,7 @@ export function RegisterForm() {
     })
       .then((data) => data.json())
       .then((json) => {
-        json.success
-          ? alert("User created successfully")
-          : alert("Input a stronger password");
+        json.success ? alert("User created successfully") : alert("Input a stronger password");
         json.success ? setIsLoggedIn(true) : setIsLoggedIn(false);
         if (json.success) {
           navigate("/myRecipes");
@@ -46,13 +45,7 @@ export function RegisterForm() {
               Username
             </label>
             <br />
-            <input
-              id="username"
-              type="text"
-              ref={usernameRef}
-              required
-              className="form-control"
-            />
+            <input id="username" type="text" ref={usernameRef} required className="form-control" />
             <br />
 
             <label htmlFor="password" className="ml-3 form-label">

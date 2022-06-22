@@ -10,19 +10,16 @@ export function RecipeCard(props) {
   const [isOpen, setIsOpen] = useState(false);
   const [size, setSize] = useState("card");
   const [theme, setTheme] = useContext(ThemeContext);
+  const url = process.env.REACT_APP_SERVER_URL || "http://localhost:3001";
 
-
-  const [recipeRef] = useFetch(
-    "http://localhost:3001/recipes/" + props.title,
-    "GET"
-  );
+  const [recipeRef] = useFetch(url + "/recipes/" + props.title, "GET");
 
   const handleFav = (event) => {
     event.preventDefault();
 
     console.log(recipeRef);
-    
-    fetch("http://localhost:3001/favorites/register", {
+
+    fetch(url + "/favorites/register", {
       method: "POST",
       body: JSON.stringify({
         currUser: isLoggedIn,
@@ -36,7 +33,6 @@ export function RecipeCard(props) {
       .then((json) => {
         json.success ? alert("Recipe added to favorites") : alert("Try Again");
       });
-    
   };
 
   return (
@@ -65,26 +61,21 @@ export function RecipeCard(props) {
                   transition={{ duration: 1 }}
                   exit={{ opacity: 0 }}
                 >
-                  <p className="card__description">
-                    Instructions: {props.description}
-                  </p>
-                  <p className="card__description">
-                    Ingredients needed: {props.ingredients}
-                  </p>
+                  <p className="card__description">Instructions: {props.description}</p>
+                  <p className="card__description">Ingredients needed: {props.ingredients}</p>
                 </motion.div>
               )}
             </div>
           </div>
         </div>
       </motion.div>
-      {isLoggedIn ?
+      {isLoggedIn ? (
         <button className="card__btn" onClick={handleFav}>
           Add to favorites
         </button>
-        :
-          ""
-      }
-
+      ) : (
+        ""
+      )}
     </>
   );
 }
