@@ -1,7 +1,11 @@
 import React, { useRef } from "react";
+import { useFetch } from "hooks/useFetch";
+import { useNavigate } from "react-router-dom";
 
 function SearchBar(props) {
   const query = useRef();
+  const navigate = useNavigate();
+
 
   const handleSearch = (event) => {
     event.preventDefault(); // prevent page reload
@@ -9,9 +13,13 @@ function SearchBar(props) {
 
     console.log(`http://localhost:3001/searchRecipe?search=${queryVal}`);
     // to fill in based on callPostBody
-    fetch(`http://localhost:3001/searchRecipe?search=${queryVal}`, { method: "GET" })
-      .then((data) => data.json())
-      .then((json) => alert(JSON.stringify(json)));
+
+  /*    const [recipeData] = useFetch(
+      "http://localhost:3001/myrecipes/searchRecipe?search=" + queryVal,
+      "GET"
+    ); */
+
+
   };
 
   return (

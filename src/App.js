@@ -11,6 +11,7 @@ import PostRecipe from "pages/PostRecipe";
 import Account from "pages/Account";
 import MyRecipes from "pages/MyRecipes";
 import MyFavorites from "pages/MyFavorites";
+import WeeklyPlan from "pages/WeeklyPlan";
 
 export const LoggedInContext = React.createContext({
   isLoggedIn: null,
@@ -40,6 +41,7 @@ function App() {
             <Route path="postRecipe" element={<PostRecipe />} />
             <Route path="myRecipes" element={<MyRecipes />} />
             <Route path="myFavorites" element={<MyFavorites />} />
+            <Route path="myWeeklyRecipes" element={<WeeklyPlan />} />
             <Route path="login" element={<Login />} />
             <Route path="register" element={<Register />} />
             <Route path="account/" element={<Account />} />

@@ -4,6 +4,7 @@ import "../components/RecipeCard.css";
 import Carousel from "react-elastic-carousel";
 import { RecipeData } from "../components/RecipeData";
 import { ThemeContext } from "App";
+import SearchBar from "components/SearchBar";
 
 export function Recipes() {
   const breakPoints = [
@@ -21,13 +22,12 @@ export function Recipes() {
   return (
     <div id={theme}>
       <br></br>
-      <h1 style={{ textAlign: "center" }}>Browse Recipes</h1>;
+      <h1 style={{ textAlign: "center" }}> Browse Recipes </h1>;
+      <div style={{ textAlign: "center" }}> <SearchBar /> </div>;
       <div className="body">
-        <h3 style={{ textAlign: "center" }}>Here's some salads</h3>
         <div className="wrapper">
           <RecipeData />
         </div>
-
         <br></br>
 
         {/* <h3 style={{ textAlign: "center" }}>Here's some more... salads!</h3>

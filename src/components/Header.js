@@ -15,7 +15,6 @@ import {
   MDBIcon,
 } from "mdb-react-ui-kit";
 import { Link } from "react-router-dom";
-import SearchBar from "./SearchBar";
 import Switch from "react-switch";
 
 export function Header(props) {
@@ -31,7 +30,7 @@ export function Header(props) {
     <header id={theme}>
       <MDBNavbar expand="lg" light fixed className="head">
         <MDBContainer fluid>
-          <SearchBar />
+          
           <Switch onChange={toggleTheme} checked={theme === "dark"} />
           <MDBNavbarToggler
             aria-controls="navbarExample01"
@@ -58,6 +57,11 @@ export function Header(props) {
               <MDBNavbarItem>
                 <MDBNavbarLink href="/recipes">
                   <Link to="/recipes">Recipes</Link>
+                </MDBNavbarLink>
+              </MDBNavbarItem>
+              <MDBNavbarItem>
+                <MDBNavbarLink href="/myWeeklyRecipes">
+                  <Link to="/myWeeklyRecipes">Weekly Recipes</Link>
                 </MDBNavbarLink>
               </MDBNavbarItem>
               {isLoggedIn ? (

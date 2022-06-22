@@ -66,7 +66,7 @@ export function RecipeCard(props) {
                   exit={{ opacity: 0 }}
                 >
                   <p className="card__description">
-                    Intructions to replicate: {props.description}
+                    Instructions: {props.description}
                   </p>
                   <p className="card__description">
                     Ingredients needed: {props.ingredients}
