@@ -3,10 +3,10 @@ import { RecipeCard } from "../components/RecipeCard";
 import "../components/RecipeCard.css";
 import Carousel from "react-elastic-carousel";
 import { RecipeData } from "../components/RecipeData";
-import { ThemeContext } from "App";
+import { SearchContext, ThemeContext } from "App";
 import SearchBar from "components/SearchBar";
 
-export function Recipes() {
+export function Recipes(props) {
   const breakPoints = [
     { width: 1, itemsToShow: 1 },
     { width: 550, itemsToShow: 2, itemsToScroll: 2, pagination: false },
@@ -18,6 +18,7 @@ export function Recipes() {
   const [wrap, setWrap] = useState("wrapper");
 
   const [theme, setTheme] = useContext(ThemeContext);
+  const [isSearched, setIsSearched] = useContext(SearchContext);
 
   return (
     <div id={theme}>

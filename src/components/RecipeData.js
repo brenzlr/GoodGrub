@@ -1,9 +1,13 @@
-import React from "react";
+import React, { useContext } from "react";
 import { useFetch } from "hooks/useFetch";
 import RecipeCard from "./RecipeCard";
+import { SearchContext } from "App";
 
-export function RecipeData({username}) {
-  const [recipeData] = useFetch(username?"http://localhost:3001/recipes/"+username:"http://localhost:3001/recipes", "GET");
+export function RecipeData(props) {
+
+  const [isSearched, setIsSearched] = useContext(SearchContext);
+
+  const [recipeData] = useFetch(isSearched?"http://localhost:3001/searchRecipe?search="+isSearched:"http://localhost:3001/recipes", "GET");
 
   const recipeList =
     recipeData &&

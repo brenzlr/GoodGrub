@@ -1,7 +1,7 @@
 import React from "react";
 import "../components/Header.css";
 import { NavButton } from "../components/NavButton";
-import { LoggedInContext, ThemeContext } from "../App";
+import { LoggedInContext, SearchContext, ThemeContext } from "../App";
 import { useContext } from "react";
 import { LogoutButton } from "../components/LogoutButton";
 import logo from "../img/logo.png";
@@ -20,6 +20,7 @@ import Switch from "react-switch";
 export function Header(props) {
   const [isLoggedIn, setIsLoggedIn] = useContext(LoggedInContext);
   const [theme, setTheme] = useContext(ThemeContext);
+  const [isSearched, setIsSearched] = useContext(SearchContext);
 
   const toggleTheme = () => {
     setTheme((curr) => (curr === "light" ? "dark" : "light"));

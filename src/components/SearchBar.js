@@ -1,11 +1,12 @@
-import React, { useRef } from "react";
+import React, { useContext, useRef } from "react";
 import { useFetch } from "hooks/useFetch";
-import { useNavigate } from "react-router-dom";
+import Recipes from "pages/Recipes";
+import { SearchContext } from "App";
 
 function SearchBar(props) {
   const query = useRef();
-  const navigate = useNavigate();
-
+  
+  const [isSearched, setIsSearched] = useContext(SearchContext);
 
   const handleSearch = (event) => {
     event.preventDefault(); // prevent page reload
@@ -19,6 +20,7 @@ function SearchBar(props) {
       "GET"
     ); */
 
+    setIsSearched(queryVal); 
 
   };
 
@@ -28,7 +30,7 @@ function SearchBar(props) {
         type="text"
         id="search"
         ref={query}
-        placeholder="Search Recipes"
+        placeholder="Click to search all"
         name="resRecipe"
       />
       <button type="submit">Search</button>

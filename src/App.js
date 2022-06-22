@@ -22,6 +22,11 @@ export const ThemeContext = React.createContext({
   setTheme: () => {},
 });
 
+export const SearchContext = React.createContext({
+  isSearched: null,
+  setIsSearched: () => {},
+});
+
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(null);
   const loggedInValueToProvide = [isLoggedIn, setIsLoggedIn]; // So we can pass down both value and setter
@@ -29,23 +34,28 @@ function App() {
   const [theme, setTheme] = useState("light");
   const themeValue = [theme, setTheme];
 
+  const [isSearched, setIsSearched] = useState(null);
+  const searchValue = [isSearched, setIsSearched];
+
   return (
     <ThemeContext.Provider value={themeValue}>
       <LoggedInContext.Provider value={loggedInValueToProvide}>
-        <Routes>
-          <Route path="/" element={<MainLayout />}>
-            {isLoggedIn ? <Route index element={<Home />} /> : ""}
-            <Route path="about" element={<About />} />
-            <Route path="recipes" element={<Recipes />} />
-            <Route path="postRecipe" element={<PostRecipe />} />
-            <Route path="myRecipes" element={<MyRecipes />} />
-            <Route path="myFavorites" element={<MyFavorites />} />
-            <Route path="login" element={<Login />} />
-            <Route path="register" element={<Register />} />
-            <Route path="account/" element={<Account />} />
-            <Route path="*" element={<Navigate to="/" Invalid URL />} />
-          </Route>
-        </Routes>
+        <SearchContext.Provider value={searchValue}>
+          <Routes>
+            <Route path="/" element={<MainLayout />}>
+              {isLoggedIn ? <Route index element={<Home />} /> : ""}
+              <Route path="about" element={<About />} />
+              <Route path="recipes" element={<Recipes />} />
+              <Route path="postRecipe" element={<PostRecipe />} />
+              <Route path="myRecipes" element={<MyRecipes />} />
+              <Route path="myFavorites" element={<MyFavorites />} />
+              <Route path="login" element={<Login />} />
+              <Route path="register" element={<Register />} />
+              <Route path="account/" element={<Account />} />
+              <Route path="*" element={<Navigate to="/" Invalid URL />} />
+            </Route>
+          </Routes>
+        </SearchContext.Provider>
       </LoggedInContext.Provider>
     </ThemeContext.Provider>
   );
