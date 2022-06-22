@@ -11,16 +11,22 @@ export function RecipeCard(props) {
   const [size, setSize] = useState("card");
   const [theme, setTheme] = useContext(ThemeContext);
 
-  const [recipeRef] = useFetch("http://localhost:3001/recipes/" + props.title, "GET");
+
+  const [recipeRef] = useFetch(
+    "http://localhost:3001/recipes/" +props.title,
+    "GET"
+  );
 
   const handleFav = (event) => {
     event.preventDefault();
 
+    console.log(recipeRef);
+    
     fetch("http://localhost:3001/favorites/register", {
       method: "POST",
       body: JSON.stringify({
         currUser: isLoggedIn,
-        recipe: recipeRef.current.value,
+        recipe: recipeRef,
       }),
       headers: {
         "Content-type": "application/json; charset=UTF-8",
@@ -28,46 +34,58 @@ export function RecipeCard(props) {
     })
       .then((data) => data.json())
       .then((json) => {
-        json.success ? alert("Recipe added to favorites") : alert(json.msg);
+        json.success ? alert("Recipe added to favorites") : alert("Try Again");
       });
+    
   };
 
   return (
-    <motion.div
-      Layout
-      onClick={() => {
-        setIsOpen(!isOpen);
-        setSize(size === "card" ? "card-expanded" : "card");
-      }}
-      transition={{ layout: { duration: 1, type: "spring" } }}
-    >
-      <div id={theme} className={size}>
-        <div className="card">
-          <div className="card__body">
-            <img src={props.imgUrl} className="card__image" alt="" />
-            <h2 className="card__title">{props.title}</h2>
-            <p className="card__description">
-              {props.type} - {props.duration} mins
-            </p>
-            {isOpen && (
-              <motion.div
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ duration: 1 }}
-                exit={{ opacity: 0 }}
-              >
-                <p className="card__description">Intructions to replicate: {props.description}</p>
-                <p className="card__description">Ingredients needed: {props.ingredients}</p>
-              </motion.div>
-            )}
+    <>
+      <motion.div
+        Layout
+        onClick={() => {
+          setIsOpen(!isOpen);
+          setSize(size === "card" ? "card-expanded" : "card");
+          console.log("expanded");
+        }}
+        transition={{ layout: { duration: 1, type: "spring" } }}
+      >
+        <div id={theme} className={size}>
+          <div className="card">
+            <div className="card__body">
+              <img src={props.imgUrl} className="card__image" alt="" />
+              <h2 className="card__title">{props.title}</h2>
+              <p className="card__description">
+                {props.type} - {props.duration} mins
+              </p>
+              {isOpen && (
+                <motion.div
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  transition={{ duration: 1 }}
+                  exit={{ opacity: 0 }}
+                >
+                  <p className="card__description">
+                    Intructions to replicate: {props.description}
+                  </p>
+                  <p className="card__description">
+                    Ingredients needed: {props.ingredients}
+                  </p>
+                </motion.div>
+              )}
+            </div>
           </div>
-
-          <button className="card__btn" onCLick={handleFav}>
-            Add to favorites
-          </button>
         </div>
-      </div>
-    </motion.div>
+      </motion.div>
+      {isLoggedIn ?
+        <button className="card__btn" onClick={handleFav}>
+          Add to favorites
+        </button>
+        :
+          ""
+      };
+
+    </>
   );
 }
 
