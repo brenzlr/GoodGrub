@@ -1,7 +1,7 @@
-import React from "react";
+import React from 'react';
 import "../components/Header.css";
 import { NavButton } from "../components/NavButton";
-import { LoggedInContext } from "../App";
+import { LoggedInContext, ThemeContext } from "../App";
 import { useContext } from "react";
 import { LogoutButton } from "../components/LogoutButton";
 import logo from "../img/logo.png";
@@ -16,15 +16,21 @@ import {
 } from "mdb-react-ui-kit";
 import { Link } from "react-router-dom";
 import SearchBar from "./SearchBar";
+import Switch from "react-switch";
+
 
 export function Header(props) {
   const [isLoggedIn, setIsLoggedIn] = useContext(LoggedInContext);
+  const [theme, setTheme] = useContext(ThemeContext);
+  
+  const toggleTheme = () => { setTheme((curr) => (curr === "light" ? "dark" : "light")); console.log({theme}); };
 
   return (
-    <header>
-      <MDBNavbar expand="lg" light fixed id={props.color} className="head">
+    <header id={theme}>
+      <MDBNavbar expand="lg" light fixed className="head">
         <MDBContainer fluid>
-        <SearchBar/>
+          <SearchBar/>
+          <Switch onChange={toggleTheme} checked={theme === "dark"}/>
           <MDBNavbarToggler
             aria-controls="navbarExample01"
             aria-expanded="false"

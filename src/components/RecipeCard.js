@@ -1,12 +1,14 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import "./RecipeCard.css";
 import { Rating } from "react-simple-star-rating";
 import { useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
+import { ThemeContext } from "App";
 
 export function RecipeCard(props) {
   const [isOpen, setIsOpen] = useState(false);
   const [size, setSize] = useState("card");
+  const [theme, setTheme] = useContext(ThemeContext);
 
   return (
     <motion.div
@@ -17,7 +19,7 @@ export function RecipeCard(props) {
       }}
       transition={{ layout: { duration: 1, type: "spring" } }}
     >
-      <div className={size}>
+      <div id={theme} className={size}>
         <div className="card">
           <div className="card__body">
             <img src={props.imgUrl} className="card__image" alt="" />

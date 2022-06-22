@@ -25,7 +25,7 @@ export function LoginForm() {
       .then((data) => data.json())
       .then((json) => {
         json.success ? alert("You're logged in") : alert("Try Again");
-        json.success ? setIsLoggedIn(true) : setIsLoggedIn(false);
+        json.success ? setIsLoggedIn(usernameRef.current.value) : setIsLoggedIn(null);
         if (json.success) {
           navigate("/account");
         }

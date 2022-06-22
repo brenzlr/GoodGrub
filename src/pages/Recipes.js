@@ -1,8 +1,9 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { RecipeCard } from "../components/RecipeCard";
 import "../components/RecipeCard.css";
 import Carousel from "react-elastic-carousel";
 import { RecipeData } from "../components/RecipeData";
+import { ThemeContext } from "App";
 
 // import Footer from "../components/Footer";
 export function Recipes() {
@@ -16,8 +17,10 @@ export function Recipes() {
 
   const [wrap, setWrap] = useState("wrapper");
 
+  const [theme, setTheme] = useContext(ThemeContext);
+
   return (
-    <div>
+    <div id={theme}>
       <br></br>
       <h1 style={{ textAlign: "center" }}>Browse Recipes</h1>;
       <div className="body">

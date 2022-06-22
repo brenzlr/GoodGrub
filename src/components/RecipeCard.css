@@ -22,8 +22,13 @@
 	 cursor: pointer;
 	 transition: transform 200ms ease-in;
 }
- .card__body {
+#light .card__body {
 	font-family: Oxygen, sans-serif;
+}
+ #dark .card__body {
+	font-family: Oxygen, sans-serif;
+	background-color: black;
+	color: white;
 }
  .card__image {
 	 height: 12rem;
@@ -36,17 +41,28 @@
  .card__description {
 	 padding: 0 1rem;
 }
- .card__btn {
+#light .card__btn {
+	padding: 1rem;
+	font-family: inherit;
+	font-weight: bold;
+	font-size: 1rem;
+	border: 2px solid #00d52e;
+	background: transparent;
+	color: #00d52e;
+	border-radius: 0.2rem;
+	transition: background-color 200ms ease-in, color 200ms ease-in;
+}
+ #dark .card__btn {
 	 padding: 1rem;
 	 font-family: inherit;
 	 font-weight: bold;
 	 font-size: 1rem;
-	 margin: 1rem;
 	 border: 2px solid #00d52e;
 	 background: transparent;
 	 color: #00d52e;
 	 border-radius: 0.2rem;
 	 transition: background-color 200ms ease-in, color 200ms ease-in;
+	 background-color: black;
 }
  .card:hover {
 	 transform: scale(1.02);

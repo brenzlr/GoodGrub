@@ -14,11 +14,13 @@
 }
 
 #light {
-  background-color: cornsilk;
+  background-color: white;
+  color: black;
 }
 
 #dark {
-  background-color: #282c34
+  background-color: black;
+  color: white;
 }
 
 .switch {
@@ -61,15 +63,11 @@
 }
 
 #light{
-  background-color: #f3ebf6;
+  background-color: white;
 }
 
 #dark{
   background-color: #202020;
-}
-
-.switch{
-
 }
 
 #light .about{
@@ -78,5 +76,5 @@
 
 #dark .about{
   
-  color: #f3ebf6;
+  color: white;
 }
