@@ -2,8 +2,10 @@ import React, { useRef } from "react";
 import { Card, Col } from "react-bootstrap";
 import "./FormStyle.css";
 import { useState } from "react";
+import { LoggedInContext } from "../App";
 
 export function RegisterRecipe() {
+  const [isLoggedIn, setIsLoggedIn] = React.useContext(LoggedInContext);
   const recipeNameRef = useRef();
   const recipeDurationRef = useRef();
   const recipeTypeRef = useRef();
@@ -26,6 +28,7 @@ export function RegisterRecipe() {
         recipeInstructions: recipeInstructionRef.current.value,
         date: dateRef.current.value,
         imgUrl: imgUrlRef.current.value,
+        recipeOwner: isLoggedIn, //field for current user (recipe owner)
       }),
       headers: {
         "Content-type": "application/json; charset=UTF-8",
