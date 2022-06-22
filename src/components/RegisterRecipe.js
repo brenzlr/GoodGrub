@@ -3,6 +3,7 @@ import { Card, Col } from "react-bootstrap";
 import "./FormStyle.css";
 import { useState } from "react";
 import { LoggedInContext } from "../App";
+import { useNavigate } from "react-router-dom";
 
 export function RegisterRecipe() {
   const [isLoggedIn, setIsLoggedIn] = React.useContext(LoggedInContext);
@@ -14,6 +15,7 @@ export function RegisterRecipe() {
   const [date, setDate] = useState(new Date().toLocaleDateString());
   const dateRef = useRef();
   const imgUrlRef = useRef();
+  const navigate = useNavigate();
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -36,7 +38,10 @@ export function RegisterRecipe() {
     })
       .then((data) => data.json())
       .then((json) => {
-        json.success ? alert("Recipe created successfully") : alert(json.msg);
+        json.success ? alert("Recipe created successfully") : alert("Issue creating recipe");
+        if (json.success) {
+          navigate("/myRecipes");
+        }
       });
   };
 

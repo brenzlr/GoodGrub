@@ -1,11 +1,14 @@
 import React, { useRef } from "react";
-import { LoggedInContext } from "../App";
+import { LoggedInContext, ThemeContext } from "../App";
 import { Card, Row, Button, Col } from "react-bootstrap";
+import { useNavigate } from "react-router-dom";
 
 export function RegisterForm() {
   const [isLoggedIn, setIsLoggedIn] = React.useContext(LoggedInContext);
+  const [theme, setTheme] = React.useContext(ThemeContext);
   const usernameRef = useRef();
   const passwordRef = useRef();
+  const navigate = useNavigate();
 
   const handleSubmit = (event) => {
     event.preventDefault(); // prevent page reload
@@ -27,13 +30,16 @@ export function RegisterForm() {
           ? alert("User created successfully")
           : alert("Input a stronger password");
         json.success ? setIsLoggedIn(true) : setIsLoggedIn(false);
+        if (json.success) {
+          navigate("/myRecipes");
+        }
       });
   };
 
   return (
     <div>
-      <Col md={{ span: 4, offset: 4 }} className="mt-5">
-        <Card>
+      <Col md={{ span: 4, offset: 4 }} id={theme} className="mt-5">
+        <Card id={theme}>
           <h1 className="text-center">Register</h1>
           <form onSubmit={handleSubmit}>
             <label htmlFor="username" className="ml-3 form-label">

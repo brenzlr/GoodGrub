@@ -1,10 +1,13 @@
 import React, { useRef } from "react";
-import { LoggedInContext } from "../App";
+import { LoggedInContext, ThemeContext } from "../App";
 import { useNavigate } from "react-router-dom";
 import { Col, Card, Button } from "react-bootstrap";
 
+import "../App.css";
+
 export function LoginForm() {
   const [isLoggedIn, setIsLoggedIn] = React.useContext(LoggedInContext);
+  const [theme, setTheme] = React.useContext(ThemeContext);
   const usernameRef = useRef();
   const passwordRef = useRef();
   const navigate = useNavigate();
@@ -36,7 +39,7 @@ export function LoginForm() {
   return (
     <div>
       <Col md={{ span: 4, offset: 4 }} className="mt-5">
-        <Card>
+        <Card id={theme}>
           <h1 className="text-center">Login</h1>
           <form onSubmit={handleSubmit}>
             <label htmlFor="username" className="ml-3 form-label">
