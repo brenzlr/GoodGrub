@@ -10,25 +10,31 @@ export function Recipes() {
   const [isLoggedIn, setIsLoggedIn] = React.useContext(LoggedInContext);
   const [theme, setTheme] = useContext(ThemeContext);
 
-  const [recipeData] = useFetch("http://localhost:3001/favorites/" + isLoggedIn, "GET");
+  const [recipeData] = useFetch(
+    "http://localhost:3001/favorites/" + isLoggedIn,
+    "GET"
+  );
 
-  console.log( recipeData);
+  console.log(recipeData);
 
   const recipeList =
     recipeData &&
-    recipeData.map((recipe) => (
-      <div key={recipe.recipeName}>
-        <RecipeCard
-          title={recipe.recipeName}
-          imgUrl={recipe.imgUrl}
-          description={recipe.recipeInstructions}
-          ingredients={recipe.recipeIngredients}
-          type={recipe.recipeType}
-          duration={recipe.recipeDuration}
-        />
+    recipeData.map((data, index) => (
+      <div key={index}>
+        {data.recipe.map((recipe, index) => (
+          <div key={index}>
+            <RecipeCard
+              title={recipe.recipeName}
+              imgUrl={recipe.imgUrl}
+              description={recipe.recipeInstructions}
+              ingredients={recipe.recipeIngredients}
+              type={recipe.recipeType}
+              duration={recipe.recipeDuration}
+            />
+          </div>
+        ))}
       </div>
     ));
-
   return (
     <div id={theme}>
       <br></br>
