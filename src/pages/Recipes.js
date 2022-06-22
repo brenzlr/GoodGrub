@@ -1,7 +1,5 @@
 import { useContext, useState } from "react";
-import { RecipeCard } from "../components/RecipeCard";
 import "../components/RecipeCard.css";
-import Carousel from "react-elastic-carousel";
 import { RecipeData } from "../components/RecipeData";
 import { SearchContext, ThemeContext } from "App";
 import SearchBar from "components/SearchBar";
@@ -16,9 +14,7 @@ export function Recipes(props) {
   ];
 
   const [wrap, setWrap] = useState("wrapper");
-
   const [theme, setTheme] = useContext(ThemeContext);
-  const [isSearched, setIsSearched] = useContext(SearchContext);
 
   return (
     <div id={theme}>

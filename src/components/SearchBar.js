@@ -13,12 +13,6 @@ function SearchBar(props) {
     const queryVal = query.current.value;
 
     console.log(`http://localhost:3001/searchRecipe?search=${queryVal}`);
-    // to fill in based on callPostBody
-
-  /*    const [recipeData] = useFetch(
-      "http://localhost:3001/myrecipes/searchRecipe?search=" + queryVal,
-      "GET"
-    ); */
 
     setIsSearched(queryVal); 
 

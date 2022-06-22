@@ -2,13 +2,11 @@ import React, { useContext, useState } from "react";
 import { Route, Routes, Navigate } from "react-router-dom";
 import "./App.css";
 import { MainLayout } from "./layouts/MainLayout";
-import { Home } from "./pages/Home";
 import { About } from "./pages/About";
 import { Recipes } from "./pages/Recipes";
 import Login from "pages/Login";
 import Register from "pages/Register";
 import PostRecipe from "pages/PostRecipe";
-import Account from "pages/Account";
 import MyRecipes from "pages/MyRecipes";
 import MyFavorites from "pages/MyFavorites";
 
@@ -43,15 +41,13 @@ function App() {
         <SearchContext.Provider value={searchValue}>
           <Routes>
             <Route path="/" element={<MainLayout />}>
-              {isLoggedIn ? <Route index element={<Home />} /> : ""}
+              <Route index element={<Recipes />} /> 
               <Route path="about" element={<About />} />
-              <Route path="recipes" element={<Recipes />} />
               <Route path="postRecipe" element={<PostRecipe />} />
               <Route path="myRecipes" element={<MyRecipes />} />
               <Route path="myFavorites" element={<MyFavorites />} />
               <Route path="login" element={<Login />} />
               <Route path="register" element={<Register />} />
-              <Route path="account/" element={<Account />} />
               <Route path="*" element={<Navigate to="/" Invalid URL />} />
             </Route>
           </Routes>

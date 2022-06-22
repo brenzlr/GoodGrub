@@ -1,6 +1,5 @@
 import React from "react";
 import "../components/Header.css";
-import { NavButton } from "../components/NavButton";
 import { LoggedInContext, SearchContext, ThemeContext } from "../App";
 import { useContext } from "react";
 import { LogoutButton } from "../components/LogoutButton";
@@ -20,7 +19,6 @@ import Switch from "react-switch";
 export function Header(props) {
   const [isLoggedIn, setIsLoggedIn] = useContext(LoggedInContext);
   const [theme, setTheme] = useContext(ThemeContext);
-  const [isSearched, setIsSearched] = useContext(SearchContext);
 
   const toggleTheme = () => {
     setTheme((curr) => (curr === "light" ? "dark" : "light"));
@@ -55,11 +53,6 @@ export function Header(props) {
                   <Link to="/about">About</Link>
                 </MDBNavbarLink>
               </MDBNavbarItem>
-              <MDBNavbarItem>
-                <MDBNavbarLink href="/recipes">
-                  <Link to="/recipes">Recipes</Link>
-                </MDBNavbarLink>
-              </MDBNavbarItem>
               {isLoggedIn ? (
                 <MDBNavbarItem>
                   <MDBNavbarLink href="/postRecipe">
@@ -82,17 +75,6 @@ export function Header(props) {
                 <MDBNavbarItem>
                   <MDBNavbarLink href="/myFavorites">
                     <Link to="/myFavorites">My Favorites</Link>
-                  </MDBNavbarLink>
-                </MDBNavbarItem>
-              ) : (
-                ""
-              )}
-              {isLoggedIn ? (
-                <MDBNavbarItem>
-                  <MDBNavbarLink href="/account">
-                    <Link to="/account">
-                      <Link to="/account">My Account</Link>
-                    </Link>
                   </MDBNavbarLink>
                 </MDBNavbarItem>
               ) : (

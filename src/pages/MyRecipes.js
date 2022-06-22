@@ -33,7 +33,7 @@ export function MyRecipes() {
   return (
     <div id={theme}>
       <br></br>
-      <h1 style={{ textAlign: "center" }}>My Favorites</h1>;
+      <h1 style={{ textAlign: "center" }}>My Recipes</h1>;
       <div className="body">
         <div className="wrapper">{recipeList}</div>
       </div>

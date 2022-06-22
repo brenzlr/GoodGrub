@@ -1,7 +1,7 @@
 import { Outlet } from "react-router-dom";
 import { Header } from "../components/Header";
 import { Footer } from "../components/Footer";
-import { LoggedInContext, ThemeContext } from "../App";
+import { ThemeContext } from "../App";
 import { useContext } from "react";
 
 export function MainLayout() {

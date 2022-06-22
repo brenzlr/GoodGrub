@@ -28,7 +28,7 @@ export function LoginForm() {
         json.success ? alert("You're logged in") : alert("Try Again");
         json.success ? setIsLoggedIn(usernameRef.current.value) : setIsLoggedIn(null);
         if (json.success) {
-          navigate("/account");
+          navigate("/myRecipes");
         }
       });
   };
