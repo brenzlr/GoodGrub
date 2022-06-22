@@ -10,16 +10,16 @@ export function RecipeCard(props) {
   const [isOpen, setIsOpen] = useState(false);
   const [size, setSize] = useState("card");
   const [theme, setTheme] = useContext(ThemeContext);
-  const url = process.env.REACT_APP_SERVER_URL || "http://localhost:3001";
+  const url = process.env.REACT_APP_SERVER_URL || "http://localhost:3001/";
 
-  const [recipeRef] = useFetch(url + "/recipes/" + props.title, "GET");
+  const [recipeRef] = useFetch(url + "recipes/" + props.title, "GET");
 
   const handleFav = (event) => {
     event.preventDefault();
 
     console.log(recipeRef);
 
-    fetch(url + "/favorites/register", {
+    fetch(url + "favorites/register", {
       method: "POST",
       body: JSON.stringify({
         currUser: isLoggedIn,

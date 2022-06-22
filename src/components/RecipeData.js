@@ -5,9 +5,9 @@ import { SearchContext } from "App";
 
 export function RecipeData(props) {
   const [isSearched, setIsSearched] = useContext(SearchContext);
-  const url = process.env.REACT_APP_SERVER_URL || "http://localhost:3001";
+  const url = process.env.REACT_APP_SERVER_URL || "http://localhost:3001/";
   const [recipeData] = useFetch(
-    isSearched ? url + "/searchRecipe?search=" + isSearched : url + "recipes",
+    isSearched ? url + "searchRecipe?search=" + isSearched : url + "recipes",
     "GET"
   );
 

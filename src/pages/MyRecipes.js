@@ -9,9 +9,9 @@ import RecipeCard from "components/RecipeCard";
 export function MyRecipes() {
   const [isLoggedIn, setIsLoggedIn] = React.useContext(LoggedInContext);
   const [theme, setTheme] = useContext(ThemeContext);
-  const url = process.env.REACT_APP_SERVER_URL || "http://localhost:3001";
+  const url = process.env.REACT_APP_SERVER_URL || "http://localhost:3001/";
 
-  const [recipeData] = useFetch(url + "/myrecipes/" + isLoggedIn, "GET");
+  const [recipeData] = useFetch(url + "myrecipes/" + isLoggedIn, "GET");
 
   console.log(recipeData);
 

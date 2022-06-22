@@ -9,13 +9,13 @@ export function RegisterForm() {
   const usernameRef = useRef();
   const passwordRef = useRef();
   const navigate = useNavigate();
-  const url = process.env.REACT_APP_SERVER_URL || "http://localhost:3001";
+  const url = process.env.REACT_APP_SERVER_URL || "http://localhost:3001/";
 
   const handleSubmit = (event) => {
     event.preventDefault(); // prevent page reload
 
     // to fill in based on callPostBody
-    fetch(url + "/users/register", {
+    fetch(url + "users/register", {
       method: "POST",
       body: JSON.stringify({
         username: usernameRef.current.value,
