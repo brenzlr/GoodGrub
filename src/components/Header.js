@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 import "../components/Header.css";
 import { NavButton } from "../components/NavButton";
 import { LoggedInContext, ThemeContext } from "../App";
@@ -18,19 +18,21 @@ import { Link } from "react-router-dom";
 import SearchBar from "./SearchBar";
 import Switch from "react-switch";
 
-
 export function Header(props) {
   const [isLoggedIn, setIsLoggedIn] = useContext(LoggedInContext);
   const [theme, setTheme] = useContext(ThemeContext);
-  
-  const toggleTheme = () => { setTheme((curr) => (curr === "light" ? "dark" : "light")); console.log({theme}); };
+
+  const toggleTheme = () => {
+    setTheme((curr) => (curr === "light" ? "dark" : "light"));
+    console.log({ theme });
+  };
 
   return (
     <header id={theme}>
       <MDBNavbar expand="lg" light fixed className="head">
         <MDBContainer fluid>
-          <SearchBar/>
-          <Switch onChange={toggleTheme} checked={theme === "dark"}/>
+          <SearchBar />
+          <Switch onChange={toggleTheme} checked={theme === "dark"} />
           <MDBNavbarToggler
             aria-controls="navbarExample01"
             aria-expanded="false"
@@ -62,6 +64,24 @@ export function Header(props) {
                 <MDBNavbarItem>
                   <MDBNavbarLink href="/postRecipe">
                     <Link to="/postRecipe">Post a Recipe</Link>
+                  </MDBNavbarLink>
+                </MDBNavbarItem>
+              ) : (
+                ""
+              )}
+              {isLoggedIn ? (
+                <MDBNavbarItem>
+                  <MDBNavbarLink href="/myRecipes">
+                    <Link to="/myRecipes">My Recipes</Link>
+                  </MDBNavbarLink>
+                </MDBNavbarItem>
+              ) : (
+                ""
+              )}
+              {isLoggedIn ? (
+                <MDBNavbarItem>
+                  <MDBNavbarLink href="/myFavorites">
+                    <Link to="/myFavorites">My Favorites</Link>
                   </MDBNavbarLink>
                 </MDBNavbarItem>
               ) : (
