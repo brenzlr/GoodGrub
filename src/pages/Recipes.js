@@ -5,7 +5,6 @@ import Carousel from "react-elastic-carousel";
 import { RecipeData } from "../components/RecipeData";
 import { ThemeContext } from "App";
 
-// import Footer from "../components/Footer";
 export function Recipes() {
   const breakPoints = [
     { width: 1, itemsToShow: 1 },
@@ -25,11 +24,9 @@ export function Recipes() {
       <h1 style={{ textAlign: "center" }}>Browse Recipes</h1>;
       <div className="body">
         <h3 style={{ textAlign: "center" }}>Here's some salads</h3>
-        {/* <Carousel breakPoints={breakPoints}> */}
-        <div className={wrap} /* onClick={() => setWrap(wrap === "wrapper" ? "" : "wrapper")} */>
+        <div className="wrapper">
           <RecipeData />
         </div>
-        {/* </Carousel> */}
 
         <br></br>
 

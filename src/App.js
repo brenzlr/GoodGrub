@@ -1,8 +1,6 @@
 import React, { useContext, useState } from "react";
 import { Route, Routes, Navigate } from "react-router-dom";
-
 import "./App.css";
-
 import { MainLayout } from "./layouts/MainLayout";
 import { Home } from "./pages/Home";
 import { About } from "./pages/About";
@@ -26,7 +24,7 @@ export const ThemeContext = React.createContext({
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(null);
   const loggedInValueToProvide = [isLoggedIn, setIsLoggedIn]; // So we can pass down both value and setter
-  
+
   const [theme, setTheme] = useState("light");
   const themeValue = [theme, setTheme];
 

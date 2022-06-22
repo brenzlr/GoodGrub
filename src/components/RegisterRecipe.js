@@ -4,7 +4,6 @@ import "./FormStyle.css";
 import { useState } from "react";
 
 export function RegisterRecipe() {
-  //const [isLoggedIn, setIsLoggedIn] = React.useContext(LoggedInContext);
   const recipeNameRef = useRef();
   const recipeDurationRef = useRef();
   const recipeTypeRef = useRef();
@@ -13,12 +12,10 @@ export function RegisterRecipe() {
   const [date, setDate] = useState(new Date().toLocaleDateString());
   const dateRef = useRef();
   const imgUrlRef = useRef();
-  // const ratingRef = useRef();
 
   const handleSubmit = (event) => {
-    event.preventDefault(); // prevent page reload
+    event.preventDefault();
 
-    // to fill in based on callPostBody
     fetch("http://localhost:3001/recipes/register", {
       method: "POST",
       body: JSON.stringify({
@@ -29,10 +26,6 @@ export function RegisterRecipe() {
         recipeInstructions: recipeInstructionRef.current.value,
         date: dateRef.current.value,
         imgUrl: imgUrlRef.current.value,
-
-        // rating: recipeRatingRef.current.value, //needs to take from the component
-        //picture, gotta see how to do this
-        // file: fileRef.current.value,
       }),
       headers: {
         "Content-type": "application/json; charset=UTF-8",
@@ -44,7 +37,6 @@ export function RegisterRecipe() {
       });
   };
 
-  //need picture here -----------------------------------------------
   return (
     <div className="container">
       <Col md={{ span: 4, offset: 4 }} className="mt-5">
@@ -54,24 +46,12 @@ export function RegisterRecipe() {
             <label htmlFor="title" className="control-label ml-2">
               Name
             </label>
-            <input
-              id="title"
-              type="text"
-              ref={recipeNameRef}
-              className="form-control"
-              required
-            />
+            <input id="title" type="text" ref={recipeNameRef} className="form-control" required />
             <br></br>
             <label htmlFor="type" className="control-label ml-2">
               Type (ex.Italian, French, etc.)
             </label>
-            <input
-              id="type"
-              type="text"
-              ref={recipeTypeRef}
-              className="form-control"
-              required
-            />
+            <input id="type" type="text" ref={recipeTypeRef} className="form-control" required />
             <br></br>
             <label htmlFor="ingredients" className="control-label ml-2">
               Ingredients
@@ -94,28 +74,6 @@ export function RegisterRecipe() {
               className="form-control"
               required
             />
-            {/*------hidden because the other users 
-        will be the one to determine it and default value is 0------*/}
-            {/* <label htmlFor="rating"></label>
-            <input
-              id="rating"
-              type="number"
-              ref={ratingRef}
-              hidden="true"
-              className="form-control"
-              value={0}
-            />
-
-            <br></br> */}
-            {/* <label for="myfile" className="control-label">
-              Select image{" "}
-            </label>
-            <input
-              type="file"
-              id="myfile"
-              ref={fileRef}
-              className="form-control"
-            ></input> */}
             <br></br>
             <label htmlFor="duration" className="control-label ml-2">
               Duration (in minutes)
@@ -129,17 +87,11 @@ export function RegisterRecipe() {
             />
             <br></br>
             <label htmlFor="title" className="control-label ml-2">
-              Enter Image URL 
+              Enter Image URL
             </label>
-            <input
-              id="title"
-              type="text"
-              ref={imgUrlRef}
-              className="form-control"
-              required
-            />
+            <input id="title" type="text" ref={imgUrlRef} className="form-control" required />
             <br></br>
-            <input id="date" type="text" value={date} ref={dateRef} required hidden={true}/>
+            <input id="date" type="text" value={date} ref={dateRef} required hidden={true} />
             <button type="submit" className="btn btn-success float-right">
               Post Recipe!
             </button>

@@ -1,7 +1,8 @@
 import React, { useRef } from "react";
 import { LoggedInContext } from "../App";
 import { useNavigate } from "react-router-dom";
-import {Col, Card, Button} from "react-bootstrap"
+import { Col, Card, Button } from "react-bootstrap";
+
 export function LoginForm() {
   const [isLoggedIn, setIsLoggedIn] = React.useContext(LoggedInContext);
   const usernameRef = useRef();
@@ -38,12 +39,28 @@ export function LoginForm() {
         <Card>
           <h1 className="text-center">Login</h1>
           <form onSubmit={handleSubmit}>
-            <label htmlFor="username" className="ml-3 form-label">Username</label><br/>
-            <input id="username" type="text" ref={usernameRef} required  className="form-control"/><br/>
+            <label htmlFor="username" className="ml-3 form-label">
+              Username
+            </label>
+            <br />
+            <input id="username" type="text" ref={usernameRef} required className="form-control" />
+            <br />
 
-            <label htmlFor="password" className="ml-3 form-label">Password</label><br/>
-            <input id="password" type="password" ref={passwordRef} required className="form-control" /><br/>
-            <Button type="submit" className="float-right  btn-success">Log in</Button>
+            <label htmlFor="password" className="ml-3 form-label">
+              Password
+            </label>
+            <br />
+            <input
+              id="password"
+              type="password"
+              ref={passwordRef}
+              required
+              className="form-control"
+            />
+            <br />
+            <Button type="submit" className="float-right  btn-success">
+              Log in
+            </Button>
           </form>
         </Card>
       </Col>
