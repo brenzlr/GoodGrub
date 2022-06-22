@@ -1,7 +1,9 @@
+import { useContext, useState } from "react";
 import { RecipeCard } from "../components/RecipeCard";
 import "../components/RecipeCard.css";
 import Carousel from "react-elastic-carousel";
 import { RecipeData } from "../components/RecipeData";
+import { ThemeContext } from "App";
 
 export function Recipes() {
   const breakPoints = [
@@ -12,8 +14,12 @@ export function Recipes() {
     { width: 1450, itemsToShow: 5 },
   ];
 
+  const [wrap, setWrap] = useState("wrapper");
+
+  const [theme, setTheme] = useContext(ThemeContext);
+
   return (
-    <div>
+    <div id={theme}>
       <br></br>
       <h1 style={{ textAlign: "center" }}>Browse Recipes</h1>;
       <div className="body">
