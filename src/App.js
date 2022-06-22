@@ -31,7 +31,6 @@ function App() {
     <ThemeContext.Provider value={{theme, toggleTheme}} >
       <div id={theme}>
         <LoggedInContext.Provider value={loggedInValueToProvide}>
-          <Switch onChange={toggleTheme} checked={theme === "dark"}/>
           <Routes>
             <Route path="/" element={<MainLayout color={theme} />}>
               {isLoggedIn ? <Route index element={<Home />} /> : ""}

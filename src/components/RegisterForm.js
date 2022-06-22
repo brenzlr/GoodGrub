@@ -23,7 +23,9 @@ export function RegisterForm() {
     })
       .then((data) => data.json())
       .then((json) => {
-        json.success ? alert("User created successfully") : alert("Input a stronger password");
+        json.success
+          ? alert("User created successfully")
+          : alert("Input a stronger password");
         json.success ? setIsLoggedIn(true) : setIsLoggedIn(false);
       });
   };
@@ -34,12 +36,34 @@ export function RegisterForm() {
         <Card>
           <h1 className="text-center">Register</h1>
           <form onSubmit={handleSubmit}>
-            <label htmlFor="username" className="ml-3 form-label">Username</label><br/>
-            <input id="username" type="text" ref={usernameRef} required  className="form-control"/><br/>
+            <label htmlFor="username" className="ml-3 form-label">
+              Username
+            </label>
+            <br />
+            <input
+              id="username"
+              type="text"
+              ref={usernameRef}
+              required
+              className="form-control"
+            />
+            <br />
 
-            <label htmlFor="password" className="ml-3 form-label">Password</label><br/>
-            <input id="password" type="password" ref={passwordRef} required className="form-control" /><br/>
-            <Button type="submit" className="float-right btn-success ">Register</Button>
+            <label htmlFor="password" className="ml-3 form-label">
+              Password
+            </label>
+            <br />
+            <input
+              id="password"
+              type="password"
+              ref={passwordRef}
+              required
+              className="form-control"
+            />
+            <br />
+            <Button type="submit" className="float-right btn-success ">
+              Register
+            </Button>
           </form>
         </Card>
       </Col>

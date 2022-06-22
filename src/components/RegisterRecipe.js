@@ -12,6 +12,7 @@ export function RegisterRecipe() {
   const recipeInstructionRef = useRef();
   const [date, setDate] = useState(new Date().toLocaleDateString());
   const dateRef = useRef();
+  const imgUrlRef = useRef();
   // const ratingRef = useRef();
 
   const handleSubmit = (event) => {
@@ -27,6 +28,7 @@ export function RegisterRecipe() {
         recipeIngredients: recipeIngredientsRef.current.value,
         recipeInstructions: recipeInstructionRef.current.value,
         date: dateRef.current.value,
+        imgUrl: imgUrlRef.current.value,
 
         // rating: recipeRatingRef.current.value, //needs to take from the component
         //picture, gotta see how to do this
@@ -123,6 +125,17 @@ export function RegisterRecipe() {
               id="duration"
               className="form-control"
               ref={recipeDurationRef}
+              required
+            />
+            <br></br>
+            <label htmlFor="title" className="control-label ml-2">
+              Enter Image URL 
+            </label>
+            <input
+              id="title"
+              type="text"
+              ref={imgUrlRef}
+              className="form-control"
               required
             />
             <br></br>

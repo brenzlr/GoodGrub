@@ -20,12 +20,11 @@ export function RecipeCard(props) {
       <div className={size}>
         <div className="card">
           <div className="card__body">
-            <img src={props.img} className="card__image" alt="" />
+            <img src={props.imgUrl} className="card__image" alt="" />
             <h2 className="card__title">{props.title}</h2>
             <p className="card__description">
               {props.type} - {props.duration} mins
             </p>
-            <p className="card__description">{props.description}</p>
             {isOpen && (
               <motion.div
                 initial={{ opacity: 0 }}
@@ -33,7 +32,7 @@ export function RecipeCard(props) {
                 transition={{ duration: 1 }}
                 exit={{ opacity: 0 }}
               >
-                <p className="card__description">Intructions to replicate: {props.instructions}</p>
+                <p className="card__description">Intructions to replicate: {props.description}</p>
                 <p className="card__description">Ingredients needed: {props.ingredients}</p>
               </motion.div>
             )}
