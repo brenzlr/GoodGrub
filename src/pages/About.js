@@ -3,7 +3,7 @@ import img from '../img/cookingwithlove.png';
 export function About() {
   return (
     <div className="about">
-      <div className="container" style={{ "text-align": "left" }}>
+      <div className="container" style={{ "textAlign": "left" }}>
         <div>
           <header>
             <h1>About Us</h1>
