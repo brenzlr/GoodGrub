@@ -6,10 +6,10 @@ import { Footer } from "../components/Footer";
 
 export function MainLayout(props) {
   return (
-    <body class="d-flex flex-column min-vh-100" id={props.color}>
+    <body className="d-flex flex-column min-vh-100" id={props.color}>
       <Header color={props.color} />
       <Outlet />
-      <Footer color={props.color}/>
+      <Footer color={props.color} />
     </body>
   );
 }

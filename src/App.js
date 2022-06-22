@@ -1,8 +1,6 @@
 import React, { useState } from "react";
 import { Route, Routes, Navigate } from "react-router-dom";
-
 import "./App.css";
-
 import { MainLayout } from "./layouts/MainLayout";
 import { Home } from "./pages/Home";
 import { About } from "./pages/About";
@@ -11,10 +9,9 @@ import Login from "pages/Login";
 import Register from "pages/Register";
 import PostRecipe from "pages/PostRecipe";
 import Account from "pages/Account";
-import Switch from "react-switch"
 
 export const LoggedInContext = React.createContext({
-  isLoggedIn: false,
+  isLoggedIn: null,
   setIsLoggedIn: () => {},
 });
 
@@ -23,12 +20,14 @@ export const ThemeContext = React.createContext(null);
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const loggedInValueToProvide = [isLoggedIn, setIsLoggedIn]; // So we can pass down both value and setter
-  
+
   const [theme, setTheme] = useState("light");
-  const toggleTheme = () => { setTheme((curr) => (curr === "light" ? "dark" : "light")); };
+  const toggleTheme = () => {
+    setTheme((curr) => (curr === "light" ? "dark" : "light"));
+  };
 
   return (
-    <ThemeContext.Provider value={{theme, toggleTheme}} >
+    <ThemeContext.Provider value={{ theme, toggleTheme }}>
       <div id={theme}>
         <LoggedInContext.Provider value={loggedInValueToProvide}>
           <Routes>

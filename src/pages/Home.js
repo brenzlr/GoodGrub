@@ -1,5 +1,4 @@
 import React from "react";
-import UserActions from "../components/UserActions";
 import DbData from "../components/DbData";
 import "../components/RecipeCard.css";
 import UserDashboard from "../components/UserDashboard";
@@ -15,9 +14,8 @@ export function Home() {
 
   return (
     <div>
-      <UserDashboard/>
+      <UserDashboard />
       <DbData />
-      <UserActions setColor={setColor} setCount={setCount} color={color} count={count} />
     </div>
   );
 }

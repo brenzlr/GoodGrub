@@ -1,12 +1,37 @@
-import { useState } from "react";
+import React, { useRef, useState } from "react";
 import "./RecipeCard.css";
-import { Rating } from "react-simple-star-rating";
-import { useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
+import { LoggedInContext } from "../App";
+import { useFetch } from "hooks/useFetch";
 
 export function RecipeCard(props) {
+  const [isLoggedIn, setIsLoggedIn] = React.useContext(LoggedInContext);
   const [isOpen, setIsOpen] = useState(false);
   const [size, setSize] = useState("card");
+
+  const usernameRef = useRef(); //need to take current user
+  const [recipeRef] = useFetch("http://localhost:3001/recipes/" + props.title, "GET");
+
+  /* const recipeNameRef = props.title; */
+
+  const handleFav = (event) => {
+    event.preventDefault();
+
+    fetch("http://localhost:3001/favorites/register", {
+      method: "POST",
+      body: JSON.stringify({
+        currUser: usernameRef.current.value,
+        recipe: recipeRef.current.value,
+      }),
+      headers: {
+        "Content-type": "application/json; charset=UTF-8",
+      },
+    })
+      .then((data) => data.json())
+      .then((json) => {
+        json.success ? alert("Recipe added to favorites") : alert(json.msg);
+      });
+  };
 
   return (
     <motion.div
@@ -38,7 +63,9 @@ export function RecipeCard(props) {
             )}
           </div>
 
-          <button className="card__btn">Add to favorites</button>
+          <button className="card__btn" onCLick={handleFav}>
+            Add to favorites
+          </button>
         </div>
       </div>
     </motion.div>

@@ -1,10 +1,8 @@
-import { useState } from "react";
 import { RecipeCard } from "../components/RecipeCard";
 import "../components/RecipeCard.css";
 import Carousel from "react-elastic-carousel";
 import { RecipeData } from "../components/RecipeData";
 
-// import Footer from "../components/Footer";
 export function Recipes() {
   const breakPoints = [
     { width: 1, itemsToShow: 1 },
@@ -14,19 +12,15 @@ export function Recipes() {
     { width: 1450, itemsToShow: 5 },
   ];
 
-  const [wrap, setWrap] = useState("wrapper");
-
   return (
     <div>
       <br></br>
       <h1 style={{ textAlign: "center" }}>Browse Recipes</h1>;
       <div className="body">
         <h3 style={{ textAlign: "center" }}>Here's some salads</h3>
-        {/* <Carousel breakPoints={breakPoints}> */}
-        <div className={wrap} /* onClick={() => setWrap(wrap === "wrapper" ? "" : "wrapper")} */>
+        <div className="wrapper">
           <RecipeData />
         </div>
-        {/* </Carousel> */}
 
         <br></br>
 
