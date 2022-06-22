@@ -83,7 +83,7 @@ export function RecipeCard(props) {
         </button>
         :
           ""
-      };
+      }
 
     </>
   );
